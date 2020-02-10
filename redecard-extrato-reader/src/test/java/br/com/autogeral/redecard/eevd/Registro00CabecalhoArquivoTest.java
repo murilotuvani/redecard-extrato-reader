@@ -23,9 +23,9 @@
  */
 package br.com.autogeral.redecard.eevd;
 
+import br.com.autogeral.redecard.eevc.Registro0002HeaderArquivo;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import java.time.LocalDate;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -47,5 +47,4 @@ public class Registro00CabecalhoArquivoTest {
         String expResult = "00,999999999,09122011,08122011,Movimentacao diaria - Cartoes de Debito,Redecard,ESTABELECIMENTO           ,000291,DIARIO         ,V1.04 - 07/10 - EEVD";
         assertEquals(expResult, result);
     }
-
 }

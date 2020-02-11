@@ -25,35 +25,22 @@ package br.com.autogeral.redecard.eevc;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import java.util.Date;
 import junit.framework.TestCase;
 import org.junit.Test;
 
 /**
+ * 11/02/2020 13:13:28
  *
  * @author kaique.mota
  */
-public class Registro002HeaderArquivoTest extends TestCase {
-    
+public class Registro005RequestTest extends TestCase {
+
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
-    
+
     @Test
-    public void testExport() {
-        String expResult = "20229122011REDECARDEXTRATO DE MOVIMENTO DE VENDASGRUPO OTICA OTICA     111106999999999DIARIO         V2.01 - 09/06 - EEVC";
-        
-        Registro002HeaderArquivo registro = new Registro002HeaderArquivo();
-        registro.setTipoRegistro(202);
-        registro.setDataEmissao(29122011);
-        registro.setAdquirente("REDECARD");
-        registro.setExtratoEletronicoVendas("EXTRATO DE MOVIMENTO DE VENDAS");
-        registro.setNomeComercial("GRUPO OTICA OTICA     ");
-        registro.setSequenciaMovimento(111106);
-        registro.setnPVgrupoMatriz(999999999);
-        registro.setTipoMovimento("DIARIO         ");
-        registro.setVersaoArquivo("V2.01 - 09/06 - EEVC");
-       
-        String atual = fixedFormatManager.export(registro);
-        assertEquals(expResult, atual);
+    public void testParse() {
+
+        String expResult = "010099999999020549200341003610000038497728122011000010000000000130000000000000000000000000000000000000000000005850000000000124152701201230120999999990205492002812201100000000000000000013000000000000000000422100******9168000020007490809230000000000005850700931415362000000000012415000000000006207000000000006208WE0072340140999999990205492002812201100000000010000000000065000000000000002930000000000062072701201201409999999902054920028122011000000000200000000000650000000000000029200000000000620827022012026099999999000000000013000000000000000000000000000000000000000000000000013000000000000000000000000000000000000000000000585000000000012415000000000000000000000000000000000001";
+        Registro005Request recordRequest = fixedFormatManager.load(Registro005Request.class, expResult);
     }
-    
 }

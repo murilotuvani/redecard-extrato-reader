@@ -25,35 +25,24 @@ package br.com.autogeral.redecard.eevc;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import java.util.Date;
 import junit.framework.TestCase;
 import org.junit.Test;
 
 /**
+ * 11/02/2020 13:13:17
  *
  * @author kaique.mota
  */
-public class Registro002HeaderArquivoTest extends TestCase {
-    
+public class Registro004HeaderMatrizTeste extends TestCase {
+
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
-    
+
     @Test
-    public void testExport() {
-        String expResult = "20229122011REDECARDEXTRATO DE MOVIMENTO DE VENDASGRUPO OTICA OTICA     111106999999999DIARIO         V2.01 - 09/06 - EEVC";
-        
-        Registro002HeaderArquivo registro = new Registro002HeaderArquivo();
-        registro.setTipoRegistro(202);
-        registro.setDataEmissao(29122011);
-        registro.setAdquirente("REDECARD");
-        registro.setExtratoEletronicoVendas("EXTRATO DE MOVIMENTO DE VENDAS");
-        registro.setNomeComercial("GRUPO OTICA OTICA     ");
-        registro.setSequenciaMovimento(111106);
-        registro.setnPVgrupoMatriz(999999999);
-        registro.setTipoMovimento("DIARIO         ");
-        registro.setVersaoArquivo("V2.01 - 09/06 - EEVC");
-       
-        String atual = fixedFormatManager.export(registro);
-        assertEquals(expResult, atual);
+    public void testEEVDRegistro00CabecalhoArquivoSerialize() {
+        String expResult = "004099999999OTICA OTICA";
+        Registro004HeaderMatriz recordHeaderArquivo = fixedFormatManager.load(Registro004HeaderMatriz.class, expResult);
+        System.out.println("REGISTRO: " + recordHeaderArquivo.getTipoRegistro());
+        System.out.println("NOME COMERCIAL: " + recordHeaderArquivo.getNomeComercialMatriz());
+        System.out.println("MATRIZ: " + recordHeaderArquivo.getnPVMatriz());
     }
-    
 }

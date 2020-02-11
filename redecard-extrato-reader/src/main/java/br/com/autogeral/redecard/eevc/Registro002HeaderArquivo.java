@@ -26,7 +26,7 @@ package br.com.autogeral.redecard.eevc;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @see
@@ -35,11 +35,11 @@ import java.time.LocalDate;
  * @author murilotuvani
  */
 @Record
-public class Registro0002HeaderArquivo {
+public class Registro002HeaderArquivo {
 
     private Integer tipoRegistro;
     private Integer dataEmissao;
-    private String rede;
+    private String adquirente;
     private String extratoEletronicoVendas;
     private String nomeComercial;
     private Integer sequenciaMovimento;
@@ -56,23 +56,23 @@ public class Registro0002HeaderArquivo {
     public void setTipoRegistro(Integer tipoRegistro) {
         this.tipoRegistro = tipoRegistro;
     }
-  
+
     @Field(offset = 4, length = 8)
     public Integer getDataEmissao() {
         return dataEmissao;
     }
 
-    public void setDataEmissao(Integer dataEmissai) {
-        this.dataEmissao = dataEmissai;
+    public void setDataEmissao(Integer dataEmissao) {
+        this.dataEmissao = dataEmissao;
     }
 
     @Field(offset = 12, length = 8)
-    public String getRede() {
-        return rede;
+    public String getAdquirente() {
+        return adquirente;
     }
 
-    public void setRede(String rede) {
-        this.rede = rede;
+    public void setAdquirente(String rede) {
+        this.adquirente = rede;
     }
 
     @Field(offset = 20, length = 30)
@@ -84,7 +84,7 @@ public class Registro0002HeaderArquivo {
         this.extratoEletronicoVendas = extratoEletronicoVendas;
     }
 
-    @Field(offset = 050, length = 22)
+    @Field(offset = 50, length = 22)
     public String getNomeComercial() {
         return nomeComercial;
     }
@@ -129,7 +129,7 @@ public class Registro0002HeaderArquivo {
         this.versaoArquivo = versaoArquivo;
     }
 
-    @Field(offset = 122, length = 903)
+    // @Field(offset = 122, length = 903)
     public String getLivre() {
         return livre;
     }
@@ -140,8 +140,7 @@ public class Registro0002HeaderArquivo {
 
     @Override
     public String toString() {
-        return "Registro0002HeaderArquivo{" + "tipoRegistro=" + tipoRegistro + ", dataEmissao=" + dataEmissao + ", rede=" + rede + ", extratoEletronicoVendas=" + extratoEletronicoVendas + ", nomeComercial=" + nomeComercial + ", sequenciaMovimento=" + sequenciaMovimento + ", nPVgrupoMatriz=" + nPVgrupoMatriz + ", tipoMovimento=" + tipoMovimento + ", versaoArquivo=" + versaoArquivo + ", livre=" + livre + '}';
+        return "Registro0002HeaderArquivo{" + "tipoRegistro=" + tipoRegistro + ", dataEmissao=" + dataEmissao + ", rede=" + adquirente + ", extratoEletronicoVendas=" + extratoEletronicoVendas + ", nomeComercial=" + nomeComercial + ", sequenciaMovimento=" + sequenciaMovimento + ", nPVgrupoMatriz=" + nPVgrupoMatriz + ", tipoMovimento=" + tipoMovimento + ", versaoArquivo=" + versaoArquivo + ", livre=" + livre + '}';
     }
-    
 
 }

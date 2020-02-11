@@ -31,7 +31,7 @@ package br.com.autogeral.redecard;
 public class Leitor {
 
     public static void main(String args[]) {
-
+ 
     }
 
 }

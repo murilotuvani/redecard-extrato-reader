@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2020 murilotuvani.
+ * Copyright 2020 kaique.mota.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,30 +21,48 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecard.eevd;
+package br.com.autogeral.redecard.eevc;
 
-import br.com.autogeral.redecard.eevc.Registro002HeaderArquivo;
-import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
-import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.Record;
 
 /**
+ * 11/02/2020 12:19:54
  *
- * @author murilotuvani
+ * @author kaique.mota
  */
-public class Registro002CabecalhoArquivoTest {
+@Record
+public class Registro004HeaderMatriz {
 
-    private static FixedFormatManager manager = new FixedFormatManagerImpl();
+    private Integer tipoRegistro;
+    private String nPVMatriz;
+    private String nomeComercialMatriz;
 
-    /**
-     * Test of getTipoRegistro method, of class Registro00CabecalhoArquivo.
-     */
-    @Test
-    public void testEEVDRegistro00CabecalhoArquivoSerialize() {
-        Registro00CabecalhoArquivo instance = new Registro00CabecalhoArquivo();
-        String result = manager.export(instance);
-        String expResult = "00,999999999,09122011,08122011,Movimentacao diaria - Cartoes de Debito,Redecard,ESTABELECIMENTO           ,000291,DIARIO         ,V1.04 - 07/10 - EEVD";
-        assertEquals(expResult, result);
+    @Field(offset = 1, length = 3)
+    public Integer getTipoRegistro() {
+        return tipoRegistro;
     }
+
+    public void setTipoRegistro(Integer tipoRegistro) {
+        this.tipoRegistro = tipoRegistro;
+    }
+
+    @Field(offset = 4, length = 9)
+    public String getnPVMatriz() {
+        return nPVMatriz;
+    }
+
+    public void setnPVMatriz(String nPVMatriz) {
+        this.nPVMatriz = nPVMatriz;
+    }
+
+    @Field(offset = 13, length = 22)
+    public String getNomeComercialMatriz() {
+        return nomeComercialMatriz;
+    }
+
+    public void setNomeComercialMatriz(String nomeComercialMatriz) {
+        this.nomeComercialMatriz = nomeComercialMatriz;
+    }
+
 }

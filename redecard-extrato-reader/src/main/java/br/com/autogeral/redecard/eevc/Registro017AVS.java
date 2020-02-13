@@ -1,18 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
  * The MIT License
  *
@@ -38,6 +24,7 @@
  */
 package br.com.autogeral.redecard.eevc;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 
@@ -47,7 +34,7 @@ import com.ancientprogramming.fixedformat4j.annotation.Record;
  * @author kaique.mota
  */
 @Record
-public class Registro017AVS {
+public class Registro017AVS implements RegistroRedecard{
 
     private Integer tipoRegistro;
     private Integer numeroPV;

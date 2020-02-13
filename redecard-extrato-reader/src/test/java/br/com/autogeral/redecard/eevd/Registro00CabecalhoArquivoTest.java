@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2020 kaique.mota.
+ * Copyright 2020 murilotuvani.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,41 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecard.eevc;
+package br.com.autogeral.redecard.eevd;
 
+import br.com.autogeral.redecard.eevc.Registro002HeaderArquivo;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import junit.framework.TestCase;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
- * 11/02/2020 13:13:17
  *
- * @author kaique.mota
+ * @author murilotuvani
  */
-public class Registro004HeaderMatrizTeste extends TestCase {
+public class Registro00CabecalhoArquivoTest {
 
-    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+    private static FixedFormatManager manager = new FixedFormatManagerImpl();
 
-    @Test
-    public void testEEVDRegistro00CabecalhoArquivoSerialize() {
-        String expResult = "004099999999OTICA OTICA";
-        Registro004HeaderMatriz recordHeaderArquivo = fixedFormatManager.load(Registro004HeaderMatriz.class, expResult);
-        System.out.println("REGISTRO: " + recordHeaderArquivo.getTipoRegistro());
-        System.out.println("NOME COMERCIAL: " + recordHeaderArquivo.getNomeComercialMatriz());
-        System.out.println("MATRIZ: " + recordHeaderArquivo.getnPVMatriz());
+    /**
+     * Test of getTipoRegistro method, of class Registro00CabecalhoArquivo.
+     */
+ 
+       @Test
+    public void testParse() {
+        String expResult = "00,014797470,04062019,03062019,Movimentacao diaria - Cartoes de Debito,Redecard,AUTO GERAL                ,000081,DIARIO         ,V1.04 - 07/10 - EEVD";
+        expResult =  expResult.replace(",", " ");
+        Registro00CabecalhoArquivo recordHeader = manager.load(Registro00CabecalhoArquivo.class, expResult);
+        System.out.println(recordHeader.toString());
     }
+    
 
-    @Test
-    public void testSerialize() {
-        String expResult = "404099999999OTICA OTICA           ";
-
-        Registro004HeaderMatriz record = new Registro004HeaderMatriz();
-        record.setTipoRegistro(404);
-        record.setNomeComercialMatriz("OTICA OTICA");
-        record.setnPVMatriz("099999999");
-        String atual = fixedFormatManager.export(record);
-        assertEquals(expResult, atual);
-
-    }
 }

@@ -25,6 +25,8 @@ package br.com.autogeral.redecard.eevc;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import java.util.Date;
+import junit.framework.TestCase;
 import org.junit.Test;
 
 /**
@@ -32,15 +34,28 @@ import org.junit.Test;
  *
  * @author kaique.mota
  */
-public class Registro008CVnsuRotativoTest {
+public class Registro008CVnsuRotativoTest extends TestCase {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
     @Test
     public void testParse() {
 
-        String expResult = "";
+        String expResult = "0080147974700641311023101202000000000000000000002098000000000000000544891XXXXXX0003000000246671956             000000000000033066848171224                                                                2000000000002065WW876746BR 1";
         Registro008CVnsuRotativo recordRequest = fixedFormatManager.load(Registro008CVnsuRotativo.class, expResult);
+        System.out.println(recordRequest.toString());
     }
+
+//    @Test
+//    public void testSerialize() {
+//        String expResult = "0080999999990991317012812201100000000000000000007000000000000000000498453******8149000000248983599             000000000000280005568175118                                                                9000000000006720ID011501";
+//        Registro008CVnsuRotativo registro = new Registro008CVnsuRotativo();
+//        registro.setTipoRegistro(Integer.SIZE);
+//        registro.setNumeroPV(Integer.SIZE);
+//        registro.setNumeroRV(Integer.SIZE);
+//        registro.setDataCVnsu(new Date("1112331"));
+//        String atual = fixedFormatManager.export(registro);
+//        assertEquals(expResult, atual);
+//    }
 
 }

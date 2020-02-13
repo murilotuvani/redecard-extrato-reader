@@ -23,8 +23,11 @@
  */
 package br.com.autogeral.redecard.eevc;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
+import java.util.Date;
 
 /**
  * 11/02/2020 17:59:08
@@ -32,18 +35,18 @@ import com.ancientprogramming.fixedformat4j.annotation.Record;
  * @author kaique.mota
  */
 @Record
-public class Registro014ParcelosemJuros {
+public class Registro014ParcelosemJuros implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPV;
     private Integer numeroRV;
-    private Integer dataRV;
+    private Date dataRV;
     private Integer brancos;
     private Integer numParcela;
     private Double valorParcelaBruto;
     private Double valorDescontoParcela;
     private Double valorParcelaLiquida;
-    private Integer dataCredito;
+    private Date dataCredito;
     private String livre;
 
     @Field(offset = 1, length = 3)
@@ -74,11 +77,12 @@ public class Registro014ParcelosemJuros {
     }
 
     @Field(offset = 22, length = 8)
-    public Integer getDataRV() {
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataRV() {
         return dataRV;
     }
 
-    public void setDataRV(Integer dataRV) {
+    public void setDataRV(Date dataRV) {
         this.dataRV = dataRV;
     }
 
@@ -128,21 +132,27 @@ public class Registro014ParcelosemJuros {
     }
 
     @Field(offset = 85, length = 8)
-    public Integer getDataCredito() {
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataCredito() {
         return dataCredito;
     }
 
-    public void setDataCredito(Integer dataCredito) {
+    public void setDataCredito(Date dataCredito) {
         this.dataCredito = dataCredito;
     }
 
-    @Field(offset = 93, length = 932)
+    // @Field(offset = 93, length = 932)
     public String getLivre() {
         return livre;
     }
 
     public void setLivre(String livre) {
         this.livre = livre;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro014ParcelosemJuros{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", numeroRV=" + numeroRV + ", dataRV=" + dataRV + ", brancos=" + brancos + ", numParcela=" + numParcela + ", valorParcelaBruto=" + valorParcelaBruto + ", valorDescontoParcela=" + valorDescontoParcela + ", valorParcelaLiquida=" + valorParcelaLiquida + ", dataCredito=" + dataCredito + ", livre=" + livre + '}';
     }
 
 }

@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2020 murilotuvani.
+ * Copyright 2020 kaique.mota.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,30 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecard.eevd;
 
-import br.com.autogeral.redecard.eevc.Registro002HeaderArquivo;
-import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
-import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import org.junit.Test;
-import static org.junit.Assert.*;
+package br.com.autogeral.redecard;
 
 /**
- *
- * @author murilotuvani
+ * 13/02/2020 12:18:25
+ * @author kaique.mota
  */
-public class Registro002CabecalhoArquivoTest {
+public interface RegistroRedecard {
 
-    private static FixedFormatManager manager = new FixedFormatManagerImpl();
-
-    /**
-     * Test of getTipoRegistro method, of class Registro00CabecalhoArquivo.
-     */
-    @Test
-    public void testEEVDRegistro00CabecalhoArquivoSerialize() {
-        Registro00CabecalhoArquivo instance = new Registro00CabecalhoArquivo();
-        String result = manager.export(instance);
-        String expResult = "00,999999999,09122011,08122011,Movimentacao diaria - Cartoes de Debito,Redecard,ESTABELECIMENTO           ,000291,DIARIO         ,V1.04 - 07/10 - EEVD";
-        assertEquals(expResult, result);
-    }
+    public Integer getTipoRegistro();
 }

@@ -23,8 +23,11 @@
  */
 package br.com.autogeral.redecard.eevc;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
+import java.util.Date;
 
 /**
  * 11/02/2020 16:15:27
@@ -32,18 +35,18 @@ import com.ancientprogramming.fixedformat4j.annotation.Record;
  * @author kaique.mota
  */
 @Record
-public class Registro034CVnsuRotativo {
+public class Registro034CVnsuRotativo implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPV;
     private Integer numeroRV;
-    private Integer dataCVnsu;
+    private Date dataCVnsu;
     private Double valorCVnsu;
     private String numeroCartao;
-    private Integer numeroCVnsu;
+    private Long numeroCVnsu;
     private String numAutorizacao;
     private String TID;
-    private String numetoPedido;
+    private String numeroPedido;
 
     @Field(offset = 1, length = 3)
     public Integer getTipoRegistro() {
@@ -73,11 +76,12 @@ public class Registro034CVnsuRotativo {
     }
 
     @Field(offset = 22, length = 8)
-    public Integer getDataCVnsu() {
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataCVnsu() {
         return dataCVnsu;
     }
 
-    public void setDataCVnsu(Integer dataCVnsu) {
+    public void setDataCVnsu(Date dataCVnsu) {
         this.dataCVnsu = dataCVnsu;
     }
 
@@ -100,11 +104,11 @@ public class Registro034CVnsuRotativo {
     }
 
     @Field(offset = 61, length = 12)
-    public Integer getNumeroCVnsu() {
+    public Long getNumeroCVnsu() {
         return numeroCVnsu;
     }
 
-    public void setNumeroCVnsu(Integer numeroCVnsu) {
+    public void setNumeroCVnsu(Long numeroCVnsu) {
         this.numeroCVnsu = numeroCVnsu;
     }
 
@@ -128,11 +132,16 @@ public class Registro034CVnsuRotativo {
 
     @Field(offset = 99, length = 30)
     public String getNumetoPedido() {
-        return numetoPedido;
+        return numeroPedido;
     }
 
     public void setNumetoPedido(String numetoPedido) {
-        this.numetoPedido = numetoPedido;
+        this.numeroPedido = numetoPedido;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro034CVnsuRotativo{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", numeroRV=" + numeroRV + ", dataCVnsu=" + dataCVnsu + ", valorCVnsu=" + valorCVnsu + ", numeroCartao=" + numeroCartao + ", numeroCVnsu=" + numeroCVnsu + ", numAutorizacao=" + numAutorizacao + ", TID=" + TID + ", numetoPedido=" + numeroPedido + '}';
     }
 
 }

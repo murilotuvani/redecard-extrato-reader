@@ -25,39 +25,34 @@ package br.com.autogeral.redecard.eevc;
 
 import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
-import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
-import java.util.Date;
 
 /**
- * 11/02/2020 15:51:52
+ * 12/02/2020 09:19:23
  *
  * @author kaique.mota
  */
 @Record
-public class Registro008CVnsuRotativo implements RegistroRedecard {
+public class Registro024CVnsuDolar implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPV;
     private Integer numeroRV;
-    private Date dataCVnsu;
+    private Integer dataCVnsu;
     private Integer zeros;
     private Double valorCVnsu;
-    private Double valorGorgeta;
+    private Double valorGorjeta;
     private String numeroCartao;
     private String statusCVnsu;
+    private Double cotacaoDolar;
+    private Integer dataCotacao;
     private Integer numeroCVnsu;
     private String numeroReferencia;
     private Double valorDesconto;
-    private String numAutorizacao;
+    private String numeroAutorizacao;
     private Integer horaTransacao;
-    private String numBilhete;
-    private String numBilhete2;
-    private String numBilhete3;
-    private String numBilhete4;
-    private String tipoCaptura;
-    private Double valorLiquido;
     private String numeroTerminal;
+    private Integer tipoCaptura;
     private String siglaPais;
     private String bandeira;
 
@@ -89,12 +84,11 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
     }
 
     @Field(offset = 22, length = 8)
-    @FixedFormatPattern("yyyyMMdd")
-    public Date getDataCVnsu() {
+    public Integer getDataCVnsu() {
         return dataCVnsu;
     }
 
-    public void setDataCVnsu(Date dataCVnsu) {
+    public void setDataCVnsu(Integer dataCVnsu) {
         this.dataCVnsu = dataCVnsu;
     }
 
@@ -117,12 +111,12 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
     }
 
     @Field(offset = 53, length = 15)
-    public Double getValorGorgeta() {
-        return valorGorgeta;
+    public Double getValorGorjeta() {
+        return valorGorjeta;
     }
 
-    public void setValorGorgeta(Double valorGorgeta) {
-        this.valorGorgeta = valorGorgeta;
+    public void setValorGorjeta(Double valorGorjeta) {
+        this.valorGorjeta = valorGorjeta;
     }
 
     @Field(offset = 68, length = 16)
@@ -143,7 +137,25 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
         this.statusCVnsu = statusCVnsu;
     }
 
-    @Field(offset = 87, length = 12)
+    @Field(offset = 87, length = 9)
+    public Double getCotacaoDolar() {
+        return cotacaoDolar;
+    }
+
+    public void setCotacaoDolar(Double cotacaoDolar) {
+        this.cotacaoDolar = cotacaoDolar;
+    }
+
+    @Field(offset = 96, length = 8)
+    public Integer getDataCotacao() {
+        return dataCotacao;
+    }
+
+    public void setDataCotacao(Integer dataCotacao) {
+        this.dataCotacao = dataCotacao;
+    }
+
+    @Field(offset = 104, length = 12)
     public Integer getNumeroCVnsu() {
         return numeroCVnsu;
     }
@@ -152,7 +164,7 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
         this.numeroCVnsu = numeroCVnsu;
     }
 
-    @Field(offset = 99, length = 13)
+    @Field(offset = 116, length = 13)
     public String getNumeroReferencia() {
         return numeroReferencia;
     }
@@ -161,7 +173,7 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
         this.numeroReferencia = numeroReferencia;
     }
 
-    @Field(offset = 112, length = 15)
+    @Field(offset = 129, length = 15)
     public Double getValorDesconto() {
         return valorDesconto;
     }
@@ -170,16 +182,16 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
         this.valorDesconto = valorDesconto;
     }
 
-    @Field(offset = 127, length = 6)
-    public String getNumAutorizacao() {
-        return numAutorizacao;
+    @Field(offset = 144, length = 6)
+    public String getNumeroAutorizacao() {
+        return numeroAutorizacao;
     }
 
-    public void setNumAutorizacao(String numAutorizacao) {
-        this.numAutorizacao = numAutorizacao;
+    public void setNumeroAutorizacao(String numeroAutorizacao) {
+        this.numeroAutorizacao = numeroAutorizacao;
     }
 
-    @Field(offset = 133, length = 6)
+    @Field(offset = 150, length = 6)
     public Integer getHoraTransacao() {
         return horaTransacao;
     }
@@ -188,61 +200,7 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
         this.horaTransacao = horaTransacao;
     }
 
-    @Field(offset = 139, length = 16)
-    public String getNumBilhete() {
-        return numBilhete;
-    }
-
-    public void setNumBilhete(String numBilhete) {
-        this.numBilhete = numBilhete;
-    }
-
-    @Field(offset = 155, length = 16)
-    public String getNumBilhete2() {
-        return numBilhete2;
-    }
-
-    public void setNumBilhete2(String numBilhete2) {
-        this.numBilhete2 = numBilhete2;
-    }
-
-    @Field(offset = 171, length = 16)
-    public String getNumBilhete3() {
-        return numBilhete3;
-    }
-
-    public void setNumBilhete3(String numBilhete3) {
-        this.numBilhete3 = numBilhete3;
-    }
-
-    @Field(offset = 187, length = 16)
-    public String getNumBilhete4() {
-        return numBilhete4;
-    }
-
-    public void setNumBilhete4(String numBilhete4) {
-        this.numBilhete4 = numBilhete4;
-    }
-
-    @Field(offset = 203, length = 1)
-    public String getTipoCaptura() {
-        return tipoCaptura;
-    }
-
-    public void setTipoCaptura(String tipoCaptura) {
-        this.tipoCaptura = tipoCaptura;
-    }
-
-    @Field(offset = 204, length = 15)
-    public Double getValorLiquido() {
-        return valorLiquido;
-    }
-
-    public void setValorLiquido(Double valorLiquido) {
-        this.valorLiquido = valorLiquido;
-    }
-
-    @Field(offset = 219, length = 8)
+    @Field(offset = 156, length = 8)
     public String getNumeroTerminal() {
         return numeroTerminal;
     }
@@ -251,7 +209,16 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
         this.numeroTerminal = numeroTerminal;
     }
 
-    @Field(offset = 227, length = 3)
+    @Field(offset = 164, length = 2)
+    public Integer getTipoCaptura() {
+        return tipoCaptura;
+    }
+
+    public void setTipoCaptura(Integer tipoCaptura) {
+        this.tipoCaptura = tipoCaptura;
+    }
+
+    @Field(offset = 166, length = 3)
     public String getSiglaPais() {
         return siglaPais;
     }
@@ -260,7 +227,7 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
         this.siglaPais = siglaPais;
     }
 
-    @Field(offset = 230, length = 1)
+    @Field(offset = 169, length = 1)
     public String getBandeira() {
         return bandeira;
     }
@@ -268,11 +235,5 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
     public void setBandeira(String bandeira) {
         this.bandeira = bandeira;
     }
-
-    @Override
-    public String toString() {
-        return "Registro008CVnsuRotativo{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", numeroRV=" + numeroRV + ", dataCVnsu=" + dataCVnsu + ", zeros=" + zeros + ", valorCVnsu=" + valorCVnsu + ", valorGorgeta=" + valorGorgeta + ", numeroCartao=" + numeroCartao + ", statusCVnsu=" + statusCVnsu + ", numeroCVnsu=" + numeroCVnsu + ", numeroReferencia=" + numeroReferencia + ", valorDesconto=" + valorDesconto + ", numAutorizacao=" + numAutorizacao + ", horaTransacao=" + horaTransacao + ", numBilhete=" + numBilhete + ", numBilhete2=" + numBilhete2 + ", numBilhete3=" + numBilhete3 + ", numBilhete4=" + numBilhete4 + ", tipoCaptura=" + tipoCaptura + ", valorLiquido=" + valorLiquido + ", numeroTerminal=" + numeroTerminal + ", siglaPais=" + siglaPais + ", bandeira=" + bandeira + '}';
-    }
-    
 
 }

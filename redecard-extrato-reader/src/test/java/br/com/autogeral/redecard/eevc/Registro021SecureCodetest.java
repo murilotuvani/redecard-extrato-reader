@@ -1,3 +1,12 @@
+package br.com.autogeral.redecard.eevc;
+
+
+import br.com.autogeral.redecard.eevc.Registro014ParcelosemJuros;
+import br.com.autogeral.redecard.eevc.Registro021SecureCode;
+import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
+import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import org.junit.Test;
+
 /*
  * The MIT License
  *
@@ -21,49 +30,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecard.eevc;
-
-import br.com.autogeral.redecard.RegistroRedecard;
-import com.ancientprogramming.fixedformat4j.annotation.Field;
-import com.ancientprogramming.fixedformat4j.annotation.Record;
-
 /**
- * 11/02/2020 12:19:54
+ * 12/02/2020 09:09:19
  *
  * @author kaique.mota
  */
-@Record
-public class Registro004HeaderMatriz implements RegistroRedecard {
+public class Registro021SecureCodetest {
 
-    private Integer tipoRegistro;
-    private String nPVMatriz;
-    private String nomeComercialMatriz;
+    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
-    @Field(offset = 1, length = 3)
-    public Integer getTipoRegistro() {
-        return tipoRegistro;
+    @Test
+    public void testParse() {
+
+        String expResult = "";
+        Registro021SecureCode recordSecureCode = fixedFormatManager.load(Registro021SecureCode.class, expResult);
     }
-
-    public void setTipoRegistro(Integer tipoRegistro) {
-        this.tipoRegistro = tipoRegistro;
-    }
-
-    @Field(offset = 4, length = 9)
-    public String getnPVMatriz() {
-        return nPVMatriz;
-    }
-
-    public void setnPVMatriz(String nPVMatriz) {
-        this.nPVMatriz = nPVMatriz;
-    }
-
-    @Field(offset = 13, length = 22)
-    public String getNomeComercialMatriz() {
-        return nomeComercialMatriz;
-    }
-
-    public void setNomeComercialMatriz(String nomeComercialMatriz) {
-        this.nomeComercialMatriz = nomeComercialMatriz;
-    }
-
 }

@@ -23,47 +23,25 @@
  */
 package br.com.autogeral.redecard.eevc;
 
-import br.com.autogeral.redecard.RegistroRedecard;
-import com.ancientprogramming.fixedformat4j.annotation.Field;
-import com.ancientprogramming.fixedformat4j.annotation.Record;
+import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
+import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import org.junit.Test;
 
 /**
- * 11/02/2020 12:19:54
+ * 12/02/2020 10:01:55
  *
  * @author kaique.mota
  */
-@Record
-public class Registro004HeaderMatriz implements RegistroRedecard {
+public class Registro028TrailerArquivotest {
 
-    private Integer tipoRegistro;
-    private String nPVMatriz;
-    private String nomeComercialMatriz;
+    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
-    @Field(offset = 1, length = 3)
-    public Integer getTipoRegistro() {
-        return tipoRegistro;
-    }
+    @Test
+    public void testParse() {
 
-    public void setTipoRegistro(Integer tipoRegistro) {
-        this.tipoRegistro = tipoRegistro;
-    }
-
-    @Field(offset = 4, length = 9)
-    public String getnPVMatriz() {
-        return nPVMatriz;
-    }
-
-    public void setnPVMatriz(String nPVMatriz) {
-        this.nPVMatriz = nPVMatriz;
-    }
-
-    @Field(offset = 13, length = 22)
-    public String getNomeComercialMatriz() {
-        return nomeComercialMatriz;
-    }
-
-    public void setNomeComercialMatriz(String nomeComercialMatriz) {
-        this.nomeComercialMatriz = nomeComercialMatriz;
+        String expResult = "0280001000177014797470000000002599920000000000000000000000000000000494593000000002105327000000000000000000000000000000000000000113182000000002486738000000000000000000000000000000000081";
+        Registro028TrailerArquivo recordTrailer = fixedFormatManager.load(Registro028TrailerArquivo.class, expResult);
+        System.out.println(recordTrailer.toString());
     }
 
 }

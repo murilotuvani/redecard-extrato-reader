@@ -23,7 +23,9 @@
  */
 package br.com.autogeral.redecard.eevc;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 import java.util.Date;
 
@@ -33,13 +35,13 @@ import java.util.Date;
  * @author kaique.mota
  */
 @Record
-public class Registro005Request {
+public class Registro005Request implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPV;
     private Integer numeroRV;
     private String numeroCartao;
-    private String valorTransacao;
+    private Double valorTransacao;
     private Date dataTranslacao;
     private Integer numeroReferencia;
     private Integer numeroProcesso;
@@ -87,15 +89,16 @@ public class Registro005Request {
     }
 
     @Field(offset = 38, length = 15)
-    public String getValorTransacao() {
+    public Double getValorTransacao() {
         return valorTransacao;
     }
 
-    public void setValorTransacao(String valorTransacao) {
+    public void setValorTransacao(Double valorTransacao) {
         this.valorTransacao = valorTransacao;
     }
 
     @Field(offset = 53, length = 8)
+    @FixedFormatPattern("yyyyMMdd")
     public Date getDataTranslacao() {
         return dataTranslacao;
     }
@@ -167,7 +170,7 @@ public class Registro005Request {
         this.bandeira = bandeira;
     }
 
-//    @Field(offset = 122, length = 903)
+    @Field(offset = 122, length = 903)
     public String getLivre() {
         return livre;
     }

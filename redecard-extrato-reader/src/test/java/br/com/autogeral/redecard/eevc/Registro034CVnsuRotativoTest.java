@@ -39,8 +39,9 @@ public class Registro034CVnsuRotativoTest {
     @Test
     public void testParse() {
 
-        String expResult = "";
+        String expResult = "0340147974700000244097803022020000000000054999C3410002780000017738130012020051431596020120201100000000005586500000000000086601/0107014797470";
         Registro034CVnsuRotativo recordCVrotativo = fixedFormatManager.load(Registro034CVnsuRotativo.class, expResult);
+        System.out.println(recordCVrotativo.toString());
     }
 
 }

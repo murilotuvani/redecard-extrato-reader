@@ -23,47 +23,24 @@
  */
 package br.com.autogeral.redecard.eevc;
 
-import br.com.autogeral.redecard.RegistroRedecard;
-import com.ancientprogramming.fixedformat4j.annotation.Field;
-import com.ancientprogramming.fixedformat4j.annotation.Record;
+import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
+import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import org.junit.Test;
 
 /**
- * 11/02/2020 12:19:54
+ * 12/02/2020 14:12:38
  *
  * @author kaique.mota
  */
-@Record
-public class Registro004HeaderMatriz implements RegistroRedecard {
+public class Registro010RVparceladosemJurostest {
 
-    private Integer tipoRegistro;
-    private String nPVMatriz;
-    private String nomeComercialMatriz;
+    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
-    @Field(offset = 1, length = 3)
-    public Integer getTipoRegistro() {
-        return tipoRegistro;
+    @Test
+    public void testParse() {
+
+        String expResult = "01001524494600084965534100278000001773813101202000005000000000810590000000000000000000000000000000000000000047503000000000763087040220203";
+        Registro010RVparceladosemJuros recordCVrotativo = fixedFormatManager.load(Registro010RVparceladosemJuros.class, expResult);
+        System.out.println(recordCVrotativo.toString());
     }
-
-    public void setTipoRegistro(Integer tipoRegistro) {
-        this.tipoRegistro = tipoRegistro;
-    }
-
-    @Field(offset = 4, length = 9)
-    public String getnPVMatriz() {
-        return nPVMatriz;
-    }
-
-    public void setnPVMatriz(String nPVMatriz) {
-        this.nPVMatriz = nPVMatriz;
-    }
-
-    @Field(offset = 13, length = 22)
-    public String getNomeComercialMatriz() {
-        return nomeComercialMatriz;
-    }
-
-    public void setNomeComercialMatriz(String nomeComercialMatriz) {
-        this.nomeComercialMatriz = nomeComercialMatriz;
-    }
-
 }

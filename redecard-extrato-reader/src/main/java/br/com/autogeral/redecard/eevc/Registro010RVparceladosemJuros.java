@@ -23,8 +23,11 @@
  */
 package br.com.autogeral.redecard.eevc;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
+import java.util.Date;
 
 /**
  * 11/02/2020 16:30:33
@@ -32,7 +35,7 @@ import com.ancientprogramming.fixedformat4j.annotation.Record;
  * @author kaique.mota
  */
 @Record
-public class Registro010RVparceladosemJuros {
+public class Registro010RVparceladosemJuros implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPV;
@@ -40,14 +43,14 @@ public class Registro010RVparceladosemJuros {
     private Integer numeroBanco;
     private Integer numeroAgencia;
     private Integer numeroContaCorrente;
-    private Integer dataRV;
+    private Date dataRV;
     private Integer quantiadeCVnsu;
     private Double valorBruto;
     private Double valorGorjeta;
     private Double valorRejeitado;
     private Double valorDesconto;
     private Double valorLiquido;
-    private Integer dataCredido1parcelaCredito;
+    private Date dataCredido1parcelaCredito;
     private String bandeira;
 
     @Field(offset = 1, length = 3)
@@ -105,11 +108,12 @@ public class Registro010RVparceladosemJuros {
     }
 
     @Field(offset = 41, length = 8)
-    public Integer getDataRV() {
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataRV() {
         return dataRV;
     }
 
-    public void setDataRV(Integer dataRV) {
+    public void setDataRV(Date dataRV) {
         this.dataRV = dataRV;
     }
 
@@ -168,11 +172,12 @@ public class Registro010RVparceladosemJuros {
     }
 
     @Field(offset = 129, length = 8)
-    public Integer getDataCredido1parcelaCredito() {
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataCredido1parcelaCredito() {
         return dataCredido1parcelaCredito;
     }
 
-    public void setDataCredido1parcelaCredito(Integer dataCredido1parcelaCredito) {
+    public void setDataCredido1parcelaCredito(Date dataCredido1parcelaCredito) {
         this.dataCredido1parcelaCredito = dataCredido1parcelaCredito;
     }
 
@@ -183,6 +188,11 @@ public class Registro010RVparceladosemJuros {
 
     public void setBandeira(String bandeira) {
         this.bandeira = bandeira;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro010RVparceladosemJuros{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", numeroRV=" + numeroRV + ", numeroBanco=" + numeroBanco + ", numeroAgencia=" + numeroAgencia + ", numeroContaCorrente=" + numeroContaCorrente + ", dataRV=" + dataRV + ", quantiadeCVnsu=" + quantiadeCVnsu + ", valorBruto=" + valorBruto + ", valorGorjeta=" + valorGorjeta + ", valorRejeitado=" + valorRejeitado + ", valorDesconto=" + valorDesconto + ", valorLiquido=" + valorLiquido + ", dataCredido1parcelaCredito=" + dataCredido1parcelaCredito + ", bandeira=" + bandeira + '}';
     }
 
 }

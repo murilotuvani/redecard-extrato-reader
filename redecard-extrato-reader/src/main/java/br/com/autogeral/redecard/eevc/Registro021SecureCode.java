@@ -1,3 +1,9 @@
+package br.com.autogeral.redecard.eevc;
+
+import br.com.autogeral.redecard.RegistroRedecard;
+import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.Record;
+
 /*
  * The MIT License
  *
@@ -21,23 +27,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecard.eevc;
-
-import br.com.autogeral.redecard.RegistroRedecard;
-import com.ancientprogramming.fixedformat4j.annotation.Field;
-import com.ancientprogramming.fixedformat4j.annotation.Record;
-
 /**
- * 11/02/2020 12:19:54
+ * 12/02/2020 09:05:20
  *
  * @author kaique.mota
  */
 @Record
-public class Registro004HeaderMatriz implements RegistroRedecard {
+public class Registro021SecureCode implements RegistroRedecard {
 
     private Integer tipoRegistro;
-    private String nPVMatriz;
-    private String nomeComercialMatriz;
+    private Integer numeroPV;
+    private Integer quantidadeConsultasRealizadas;
+    private Integer dataConsulta;
+    private String bandeira;
 
     @Field(offset = 1, length = 3)
     public Integer getTipoRegistro() {
@@ -49,21 +51,39 @@ public class Registro004HeaderMatriz implements RegistroRedecard {
     }
 
     @Field(offset = 4, length = 9)
-    public String getnPVMatriz() {
-        return nPVMatriz;
+    public Integer getNumeroPV() {
+        return numeroPV;
     }
 
-    public void setnPVMatriz(String nPVMatriz) {
-        this.nPVMatriz = nPVMatriz;
+    public void setNumeroPV(Integer numeroPV) {
+        this.numeroPV = numeroPV;
     }
 
-    @Field(offset = 13, length = 22)
-    public String getNomeComercialMatriz() {
-        return nomeComercialMatriz;
+    @Field(offset = 13, length = 5)
+    public Integer getQuantidadeConsultasRealizadas() {
+        return quantidadeConsultasRealizadas;
     }
 
-    public void setNomeComercialMatriz(String nomeComercialMatriz) {
-        this.nomeComercialMatriz = nomeComercialMatriz;
+    public void setQuantidadeConsultasRealizadas(Integer quantidadeConsultasRealizadas) {
+        this.quantidadeConsultasRealizadas = quantidadeConsultasRealizadas;
+    }
+
+    @Field(offset = 18, length = 8)
+    public Integer getDataConsulta() {
+        return dataConsulta;
+    }
+
+    public void setDataConsulta(Integer dataConsulta) {
+        this.dataConsulta = dataConsulta;
+    }
+
+    @Field(offset = 26, length = 1)
+    public String getBandeira() {
+        return bandeira;
+    }
+
+    public void setBandeira(String bandeira) {
+        this.bandeira = bandeira;
     }
 
 }

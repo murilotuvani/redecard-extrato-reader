@@ -25,6 +25,9 @@ package br.com.autogeral.redecard.eevc;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import static junit.framework.TestCase.assertEquals;
 import org.junit.Test;
 
 /**
@@ -39,8 +42,37 @@ public class Registro006RVrotativoTest {
     @Test
     public void testParse() {
 
-        String expResult = "";
+        String expResult = "00609999999909913170134100361000005809702812201100001000000000007000000000000000000000000000000000000000000000280000000000006720270120123";
         Registro006RVrotativo recordRVrotativo = fixedFormatManager.load(Registro006RVrotativo.class, expResult);
+        System.out.println(recordRVrotativo.toString());
     }
 
+//    @Test
+//    public void testSerialize() {
+//        String expResult = "60699999999909913170134130361000005809702812201100001000000000007000000000000000000000000000000000000000000000280000000000006720270120123";
+//        Registro006RVrotativo registro = new Registro006RVrotativo();
+//
+//        // foi colocado como registro 606 pois o Integer corta os zero a esquerda. O real numero de registro é 006.
+//        registro.setTipoRegistro(606);
+//        // foi colocado como numeroPV 999999999 pois o Integer corta os zero a esquerda. O real numero de PV é 099999999.
+//        registro.setNumeroPv(999999999);
+//        // foi colocado numeroRV 999131701 pois o Integer corta os zero a esquerda; o Real numeroRV é 999131701
+//        registro.setNumeroRV(999131701);
+//        registro.setNumeroBanco(341);
+//        // foi colocado numero Agencia 303 pois o Integer corta os zero a esquerda; o Real numeroRV é 003
+//        registro.setNumeroAgencia(361);
+//        registro.setNumContaCorrente(580970);
+//        registro.setDataRV(java.sql.Date.valueOf(LocalDate.parse("28122011", DateTimeFormatter.ofPattern("ddMMyyyy"))));
+//        registro.setQuantidadeCVeNUSacatados(1);
+//        registro.setValorBruto(70.0);
+//        registro.setValorGorgeta(0.0);
+//        registro.setValorRejeitado(0.0);
+//        registro.setValorDesconto(2.8);
+//        registro.setValorLiquido(67.2);
+//        registro.setDataRV(java.sql.Date.valueOf(LocalDate.parse("28122011", DateTimeFormatter.ofPattern("ddMMyyyy"))));
+//        registro.setBandeira("3");
+//        
+//        String atual = fixedFormatManager.export(registro);
+//        assertEquals(expResult, atual);
+//    }
 }

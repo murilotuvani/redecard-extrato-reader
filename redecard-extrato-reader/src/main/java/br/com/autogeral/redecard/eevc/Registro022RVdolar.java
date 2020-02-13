@@ -25,33 +25,31 @@ package br.com.autogeral.redecard.eevc;
 
 import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
-import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
-import java.util.Date;
 
 /**
- * 11/02/2020 15:33:57
+ * 12/02/2020 09:11:00
  *
  * @author kaique.mota
  */
 @Record
-public class Registro006RVrotativo implements RegistroRedecard {
+public class Registro022RVdolar implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPV;
     private Integer numeroRV;
     private Integer numeroBanco;
     private Integer numeroAgencia;
-    private Integer numContaCorrente;
-    private Date dataRV;
-    private Integer quantidadeCVeNUSacatados;
+    private Integer mumeroContaCorrente;
+    private Integer dataRV;
+    private Integer quantidadeCVnsu;
     private Double valorBruto;
     private Double valorGorgeta;
     private Double valorRejeitado;
     private Double valorDesconto;
     private Double valorLiquido;
-    private Date dataCredito;
-    private String bandeira;
+    private Integer dataCredito;
+    private String Bandeira;
 
     @Field(offset = 1, length = 3)
     public Integer getTipoRegistro() {
@@ -63,12 +61,12 @@ public class Registro006RVrotativo implements RegistroRedecard {
     }
 
     @Field(offset = 4, length = 9)
-    public Integer getNumeroPv() {
+    public Integer getNumeroPV() {
         return numeroPV;
     }
 
-    public void setNumeroPv(Integer numeroPv) {
-        this.numeroPV = numeroPv;
+    public void setNumeroPV(Integer numeroPV) {
+        this.numeroPV = numeroPV;
     }
 
     @Field(offset = 13, length = 9)
@@ -99,31 +97,30 @@ public class Registro006RVrotativo implements RegistroRedecard {
     }
 
     @Field(offset = 30, length = 11)
-    public Integer getNumContaCorrente() {
-        return numContaCorrente;
+    public Integer getMumeroContaCorrente() {
+        return mumeroContaCorrente;
     }
 
-    public void setNumContaCorrente(Integer numContaCorrente) {
-        this.numContaCorrente = numContaCorrente;
+    public void setMumeroContaCorrente(Integer mumeroContaCorrente) {
+        this.mumeroContaCorrente = mumeroContaCorrente;
     }
 
     @Field(offset = 41, length = 8)
-    @FixedFormatPattern("yyyyMMdd")
-    public Date getDataRV() {
+    public Integer getDataRV() {
         return dataRV;
     }
 
-    public void setDataRV(Date dataRV) {
+    public void setDataRV(Integer dataRV) {
         this.dataRV = dataRV;
     }
 
     @Field(offset = 49, length = 5)
-    public Integer getQuantidadeCVeNUSacatados() {
-        return quantidadeCVeNUSacatados;
+    public Integer getQuantidadeCVnsu() {
+        return quantidadeCVnsu;
     }
 
-    public void setQuantidadeCVeNUSacatados(Integer quantidadeCVeNUSacatados) {
-        this.quantidadeCVeNUSacatados = quantidadeCVeNUSacatados;
+    public void setQuantidadeCVnsu(Integer quantidadeCVnsu) {
+        this.quantidadeCVnsu = quantidadeCVnsu;
     }
 
     @Field(offset = 54, length = 15)
@@ -172,27 +169,21 @@ public class Registro006RVrotativo implements RegistroRedecard {
     }
 
     @Field(offset = 129, length = 8)
-    @FixedFormatPattern("yyyyMMdd")
-    public Date getDataCredito() {
+    public Integer getDataCredito() {
         return dataCredito;
     }
 
-    public void setDataCredito(Date dataCredito) {
+    public void setDataCredito(Integer dataCredito) {
         this.dataCredito = dataCredito;
     }
 
     @Field(offset = 137, length = 1)
     public String getBandeira() {
-        return bandeira;
+        return Bandeira;
     }
 
-    public void setBandeira(String bandeira) {
-        this.bandeira = bandeira;
-    }
-
-    @Override
-    public String toString() {
-        return "Registro006RVrotativo{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", numeroRV=" + numeroRV + ", numeroBanco=" + numeroBanco + ", numeroAgencia=" + numeroAgencia + ", numContaCorrente=" + numContaCorrente + ", dataRV=" + dataRV + ", quantidadeCVeNUSacatados=" + quantidadeCVeNUSacatados + ", valorBruto=" + valorBruto + ", valorGorgeta=" + valorGorgeta + ", valorRejeitado=" + valorRejeitado + ", valorDesconto=" + valorDesconto + ", valorLiquido=" + valorLiquido + ", dataCredito=" + dataCredito + ", bandeira=" + bandeira + '}';
+    public void setBandeira(String Bandeira) {
+        this.Bandeira = Bandeira;
     }
 
 }

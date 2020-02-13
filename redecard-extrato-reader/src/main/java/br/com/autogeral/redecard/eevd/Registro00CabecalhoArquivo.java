@@ -21,23 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package br.com.autogeral.redecard.eevd;
 
+import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * 06/02/2020 21:54:57
+ *
  * @author murilotuvani
  */
 @Record
 public class Registro00CabecalhoArquivo {
-    
+
     private Integer tipoRegistro;
     private Integer numeroFiliacao;
-    private LocalDate dataEmissao;
-    private LocalDate dataMovimento;
+    private Date dataEmissao;
+    private Date dataMovimento;
     private String movimentacaoDiaria;
     private String adquirente;
     private String nomeEstabelecimento;
@@ -45,6 +47,7 @@ public class Registro00CabecalhoArquivo {
     private String tipoProcessamento;
     private String versaoArquivo;
 
+    @Field(offset = 1, length = 3)
     public Integer getTipoRegistro() {
         return tipoRegistro;
     }
@@ -53,6 +56,7 @@ public class Registro00CabecalhoArquivo {
         this.tipoRegistro = tipoRegistro;
     }
 
+    @Field(offset = 4, length = 9)
     public Integer getNumeroFiliacao() {
         return numeroFiliacao;
     }
@@ -61,22 +65,27 @@ public class Registro00CabecalhoArquivo {
         this.numeroFiliacao = numeroFiliacao;
     }
 
-    public LocalDate getDataEmissao() {
+    @Field(offset = 13, length = 8)
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataEmissao() {
         return dataEmissao;
     }
 
-    public void setDataEmissao(LocalDate dataEmissao) {
+    public void setDataEmissao(Date dataEmissao) {
         this.dataEmissao = dataEmissao;
     }
 
-    public LocalDate getDataMovimento() {
+    @Field(offset = 21, length = 8)
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataMovimento() {
         return dataMovimento;
     }
 
-    public void setDataMovimento(LocalDate dataMovimento) {
+    public void setDataMovimento(Date dataMovimento) {
         this.dataMovimento = dataMovimento;
     }
 
+    @Field(offset = 29, length = 39)
     public String getMovimentacaoDiaria() {
         return movimentacaoDiaria;
     }
@@ -85,6 +94,7 @@ public class Registro00CabecalhoArquivo {
         this.movimentacaoDiaria = movimentacaoDiaria;
     }
 
+    @Field(offset = 68, length = 8)
     public String getAdquirente() {
         return adquirente;
     }
@@ -93,6 +103,7 @@ public class Registro00CabecalhoArquivo {
         this.adquirente = adquirente;
     }
 
+    @Field(offset = 76, length = 26)
     public String getNomeEstabelecimento() {
         return nomeEstabelecimento;
     }
@@ -101,6 +112,7 @@ public class Registro00CabecalhoArquivo {
         this.nomeEstabelecimento = nomeEstabelecimento;
     }
 
+    @Field(offset = 102, length = 6)
     public Integer getSequencia() {
         return sequencia;
     }
@@ -109,6 +121,7 @@ public class Registro00CabecalhoArquivo {
         this.sequencia = sequencia;
     }
 
+    @Field(offset = 108, length = 15)
     public String getTipoProcessamento() {
         return tipoProcessamento;
     }
@@ -117,6 +130,7 @@ public class Registro00CabecalhoArquivo {
         this.tipoProcessamento = tipoProcessamento;
     }
 
+    @Field(offset = 123, length = 20)
     public String getVersaoArquivo() {
         return versaoArquivo;
     }

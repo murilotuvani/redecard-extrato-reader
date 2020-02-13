@@ -23,8 +23,11 @@
  */
 package br.com.autogeral.redecard.eevc;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
+import java.util.Date;
 
 /**
  * 11/02/2020 16:56:24
@@ -32,12 +35,12 @@ import com.ancientprogramming.fixedformat4j.annotation.Record;
  * @author kaique.mota
  */
 @Record
-public class Registro12CVnsuparceladosemJuros {
+public class Registro12CVnsuparceladosemJuros implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPV;
     private Integer numeroRV;
-    private Integer dataCVnsu;
+    private Date dataCVnsu;
     private Integer zeros;
     private Double valorCVnsu;
     private Double valorGorjeta;
@@ -89,11 +92,12 @@ public class Registro12CVnsuparceladosemJuros {
     }
 
     @Field(offset = 22, length = 8)
-    public Integer getDataCVnsu() {
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataCVnsu() {
         return dataCVnsu;
     }
 
-    public void setDataCVnsu(Integer dataCVnsu) {
+    public void setDataCVnsu(Date dataCVnsu) {
         this.dataCVnsu = dataCVnsu;
     }
 
@@ -293,6 +297,11 @@ public class Registro12CVnsuparceladosemJuros {
 
     public void setBandeira(String bandeira) {
         this.bandeira = bandeira;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro12CVnsuparceladosemJuros{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", numeroRV=" + numeroRV + ", dataCVnsu=" + dataCVnsu + ", zeros=" + zeros + ", valorCVnsu=" + valorCVnsu + ", valorGorjeta=" + valorGorjeta + ", numeroCartao=" + numeroCartao + ", statusCVnsu=" + statusCVnsu + ", numeroParcelas=" + numeroParcelas + ", numeroCVnsu=" + numeroCVnsu + ", numeroReferencia=" + numeroReferencia + ", valorDesconto=" + valorDesconto + ", numeroAutorizacao=" + numeroAutorizacao + ", horaTransacao=" + horaTransacao + ", numeroBilhete=" + numeroBilhete + ", numeroBilhete2=" + numeroBilhete2 + ", numeroBilhete3=" + numeroBilhete3 + ", numeroBilhete4=" + numeroBilhete4 + ", tipoCaptura=" + tipoCaptura + ", valorLiquido=" + valorLiquido + ", valorLiquido1parcela=" + valorLiquido1parcela + ", valorLiquidoDemaisParcelas=" + valorLiquidoDemaisParcelas + ", numeroTerminal=" + numeroTerminal + ", siglaPais=" + siglaPais + ", bandeira=" + bandeira + '}';
     }
 
 }

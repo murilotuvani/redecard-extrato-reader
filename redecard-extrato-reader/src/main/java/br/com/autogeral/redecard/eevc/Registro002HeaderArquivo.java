@@ -23,6 +23,7 @@
  */
 package br.com.autogeral.redecard.eevc;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
@@ -35,10 +36,10 @@ import java.util.Date;
  * @author murilotuvani
  */
 @Record
-public class Registro002HeaderArquivo {
+public class Registro002HeaderArquivo implements RegistroRedecard {
 
     private Integer tipoRegistro;
-    private Integer dataEmissao;
+    private Date dataEmissao;
     private String adquirente;
     private String extratoEletronicoVendas;
     private String nomeComercial;
@@ -58,11 +59,12 @@ public class Registro002HeaderArquivo {
     }
 
     @Field(offset = 4, length = 8)
-    public Integer getDataEmissao() {
+    @FixedFormatPattern("ddMMyyyy")
+    public Date getDataEmissao() {
         return dataEmissao;
     }
 
-    public void setDataEmissao(Integer dataEmissao) {
+    public void setDataEmissao(Date dataEmissao) {
         this.dataEmissao = dataEmissao;
     }
 
@@ -129,7 +131,7 @@ public class Registro002HeaderArquivo {
         this.versaoArquivo = versaoArquivo;
     }
 
-    // @Field(offset = 122, length = 903)
+   // @Field(offset = 122, length = 903)
     public String getLivre() {
         return livre;
     }

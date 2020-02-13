@@ -23,6 +23,7 @@
  */
 package br.com.autogeral.redecard.eevc;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 
@@ -32,7 +33,7 @@ import com.ancientprogramming.fixedformat4j.annotation.Record;
  * @author kaique.mota
  */
 @Record
-public class Registro011ExtratoEletronicoVendas {
+public class Registro011ExtratoEletronicoVendas implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPVcreditado;

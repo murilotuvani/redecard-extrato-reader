@@ -38,7 +38,7 @@ public class Registro014ParcelosemJurosTest {
     @Test
     public void testParse() {
 
-        String expResult = "";
+        String expResult = "01401479747000994968331052019000000000100000000023092300000000001094500000000021997804062019";
         Registro014ParcelosemJuros recordParcelaSemJuros = fixedFormatManager.load(Registro014ParcelosemJuros.class, expResult);
     }
 }

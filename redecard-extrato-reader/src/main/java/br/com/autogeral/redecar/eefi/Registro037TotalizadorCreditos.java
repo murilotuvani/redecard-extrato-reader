@@ -159,4 +159,9 @@ public class Registro037TotalizadorCreditos implements RegistroRedecard {
         this.valorTotalCreditos = valorTotalCreditos;
     }
 
+    @Override
+    public String toString() {
+        return "Registro037TotalizadorCreditos{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", brancos=" + brancos + ", dataCredito=" + dataCredito + ", valorTotalCredito=" + valorTotalCredito + ", brancos2=" + brancos2 + ", numeroBanco=" + numeroBanco + ", numeroAgencia=" + numeroAgencia + ", numeroContaCorrente=" + numeroContaCorrente + ", dataGeracaoArquivo=" + dataGeracaoArquivo + ", dataCreditoAntecipado=" + dataCreditoAntecipado + ", valorTotalCreditos=" + valorTotalCreditos + '}';
+    }
+
 }

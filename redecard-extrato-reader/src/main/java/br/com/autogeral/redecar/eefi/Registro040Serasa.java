@@ -109,4 +109,9 @@ public class Registro040Serasa implements RegistroRedecard {
         this.valorConsultaPeriodo = valorConsultaPeriodo;
     }
 
+    @Override
+    public String toString() {
+        return "Registro040Serasa{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", quantidadeConsultasRealizadasPeriodo=" + quantidadeConsultasRealizadasPeriodo + ", valorTotalConsultasPeriodo=" + valorTotalConsultasPeriodo + ", inicioPeriodoConsulta=" + inicioPeriodoConsulta + ", fimPeriodoConsulta=" + fimPeriodoConsulta + ", valorConsultaPeriodo=" + valorConsultaPeriodo + '}';
+    }
+
 }

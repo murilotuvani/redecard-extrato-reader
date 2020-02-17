@@ -63,7 +63,7 @@ public class Leitor {
     private List<RegistroRedecard> registros = new ArrayList<>();
 
     public static void main(String args[]) {
-        File diretorio = new File("C:\\Users\\Kaique\\Documents\\Tivit_05022020_211913");
+        File diretorio = new File("C:\\Users\\kaique.mota\\Documents\\Tivit_05022020_211715");
         defineLeituraArquivo(diretorio);
     }
 
@@ -179,7 +179,11 @@ public class Leitor {
 
             }
             break;
-          
+            case "034": {
+                Registro034Creditos registroCreditos = FFM.load(Registro034Creditos.class, l);
+                registros.add(registroCreditos);
+            }
+            break;
             case "037": {
                 Registro037TotalizadorCreditos totalizador = FFM.load(Registro037TotalizadorCreditos.class, l);
                 registros.add(totalizador);
@@ -192,7 +196,13 @@ public class Leitor {
 
             }
             break;
-        
+            case "049": {
+                Registro049DesagendamentodeParcelas cvNSURecarga = FFM.load(Registro049DesagendamentodeParcelas.class, l);
+                registros.add(cvNSURecarga);
+
+            }
+            break;
+
             case "050": {
                 Registro050TotalizadorMatriz totalizadorMatriz = FFM.load(Registro050TotalizadorMatriz.class, l);
                 registros.add(totalizadorMatriz);
@@ -207,7 +217,7 @@ public class Leitor {
             break;
 
         }
-      
+
     }
 
 }

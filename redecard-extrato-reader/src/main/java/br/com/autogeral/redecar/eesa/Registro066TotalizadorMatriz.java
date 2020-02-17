@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2020 Kaique.
+ * Copyright 2020 kaique.mota.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,22 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecar.eefi;
+package br.com.autogeral.redecar.eesa;
 
-import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 
 /**
- *@see https://www.userede.com.br/pt-BR/produtosservicos/Documents/Extrato_Eletronico/0208_EEFI_Rede_0263_ExtratosOnlineFinanciamento(portugues).pdf
- * @author Kaique
+ * 17/02/2020 17:55:14
+ *
+ * @author kaique.mota
+ * @see https://www.userede.com.br/novo/documentos
  */
 @Record
-public class Registro032HeaderMatriz implements RegistroRedecard {
+public class Registro066TotalizadorMatriz {
 
     private Integer tipoRegistro;
-    private String numeroMatriz;
-    private String nomeComercial;
+    private Integer numeroPVmatriz;
+    private Integer quantidadeTotalResumos;
+    private Double valotTotalLiquido;
 
     @Field(offset = 1, length = 3)
     public Integer getTipoRegistro() {
@@ -46,26 +48,32 @@ public class Registro032HeaderMatriz implements RegistroRedecard {
     public void setTipoRegistro(Integer tipoRegistro) {
         this.tipoRegistro = tipoRegistro;
     }
+
     @Field(offset = 4, length = 9)
-    public String getNumeroMatriz() {
-        return numeroMatriz;
+    public Integer getNumeroPVmatriz() {
+        return numeroPVmatriz;
     }
 
-    public void setNumeroMatriz(String numeroMatriz) {
-        this.numeroMatriz = numeroMatriz;
-    }
-    @Field(offset = 13, length = 22)
-    public String getNomeComercial() {
-        return nomeComercial;
+    public void setNumeroPVmatriz(Integer numeroPVmatriz) {
+        this.numeroPVmatriz = numeroPVmatriz;
     }
 
-    public void setNomeComercial(String nomeComercial) {
-        this.nomeComercial = nomeComercial;
+    @Field(offset = 13, length = 5)
+    public Integer getQuantidadeTotalResumos() {
+        return quantidadeTotalResumos;
     }
 
-    @Override
-    public String toString() {
-        return "Registro032HeaderMatriz{" + "tipoRegistro=" + tipoRegistro + ", numeroMatriz=" + numeroMatriz + ", nomeComercial=" + nomeComercial + '}';
+    public void setQuantidadeTotalResumos(Integer quantidadeTotalResumos) {
+        this.quantidadeTotalResumos = quantidadeTotalResumos;
+    }
+
+    @Field(offset = 63, length = 15)
+    public Double getValotTotalLiquido() {
+        return valotTotalLiquido;
+    }
+
+    public void setValotTotalLiquido(Double valotTotalLiquido) {
+        this.valotTotalLiquido = valotTotalLiquido;
     }
 
 }

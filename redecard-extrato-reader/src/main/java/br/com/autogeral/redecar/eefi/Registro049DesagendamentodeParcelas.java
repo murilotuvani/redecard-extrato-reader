@@ -37,9 +37,9 @@ import java.util.Date;
 public class Registro049DesagendamentodeParcelas implements RegistroRedecard {
 
     private Integer tipoRegistro;
-    private Integer numerpoPVoriginal;
-    private Integer numeroRVoriginal;
-    private Integer numeroReferencia;
+    private Long numerpoPVoriginal;
+    private Long numeroRVoriginal;
+    private String numeroReferencia;
     private Date dataCredito;
     private Double novoValorParcela;
     private Double valorOriginalParcelaAlterada;
@@ -47,9 +47,9 @@ public class Registro049DesagendamentodeParcelas implements RegistroRedecard {
     private Date dataCancelamento;
     private Double valorRVoriginal;
     private Double valorCancelamentoSolicitado;
-    private Integer numeroCartao;
+    private String numeroCartao;
     private Date dataTransacao;
-    private Integer NSU;
+    private Long NSU;
     private Integer tipoDebito;
     private Integer numeroParcela;
     private String bandeiraRVorigem;
@@ -64,29 +64,29 @@ public class Registro049DesagendamentodeParcelas implements RegistroRedecard {
     }
 
     @Field(offset = 4, length = 9)
-    public Integer getNumerpoPVoriginal() {
+    public Long getNumerpoPVoriginal() {
         return numerpoPVoriginal;
     }
 
-    public void setNumerpoPVoriginal(Integer numerpoPVoriginal) {
+    public void setNumerpoPVoriginal(Long numerpoPVoriginal) {
         this.numerpoPVoriginal = numerpoPVoriginal;
     }
 
     @Field(offset = 13, length = 9)
-    public Integer getNumeroRVoriginal() {
+    public Long getNumeroRVoriginal() {
         return numeroRVoriginal;
     }
 
-    public void setNumeroRVoriginal(Integer numeroRVoriginal) {
+    public void setNumeroRVoriginal(Long numeroRVoriginal) {
         this.numeroRVoriginal = numeroRVoriginal;
     }
 
     @Field(offset = 22, length = 15)
-    public Integer getNumeroReferencia() {
+    public String getNumeroReferencia() {
         return numeroReferencia;
     }
 
-    public void setNumeroReferencia(Integer numeroReferencia) {
+    public void setNumeroReferencia(String numeroReferencia) {
         this.numeroReferencia = numeroReferencia;
     }
 
@@ -156,11 +156,11 @@ public class Registro049DesagendamentodeParcelas implements RegistroRedecard {
     }
 
     @Field(offset = 128, length = 16)
-    public Integer getNumeroCartao() {
+    public String getNumeroCartao() {
         return numeroCartao;
     }
 
-    public void setNumeroCartao(Integer numeroCartao) {
+    public void setNumeroCartao(String numeroCartao) {
         this.numeroCartao = numeroCartao;
     }
 
@@ -175,11 +175,11 @@ public class Registro049DesagendamentodeParcelas implements RegistroRedecard {
     }
 
     @Field(offset = 152, length = 12)
-    public Integer getNSU() {
+    public Long getNSU() {
         return NSU;
     }
 
-    public void setNSU(Integer NSU) {
+    public void setNSU(Long NSU) {
         this.NSU = NSU;
     }
 

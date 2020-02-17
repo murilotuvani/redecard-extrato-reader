@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2020 Kaique.
+ * Copyright 2020 kaique.mota.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,22 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecar.eefi;
+package br.com.autogeral.redecar.eesa;
 
-import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 
 /**
- *@see https://www.userede.com.br/pt-BR/produtosservicos/Documents/Extrato_Eletronico/0208_EEFI_Rede_0263_ExtratosOnlineFinanciamento(portugues).pdf
- * @author Kaique
+ * 17/02/2020 17:40:50
+ *
+ * @see https://www.userede.com.br/novo/documentos
+ * @author kaique.mota
  */
 @Record
-public class Registro032HeaderMatriz implements RegistroRedecard {
+public class RegistroTipo061CabecalhoArquivo {
 
     private Integer tipoRegistro;
-    private String numeroMatriz;
-    private String nomeComercial;
+    private String numeroPVmatriz;
+    private String nomeComercialMatriz;
 
     @Field(offset = 1, length = 3)
     public Integer getTipoRegistro() {
@@ -46,26 +47,23 @@ public class Registro032HeaderMatriz implements RegistroRedecard {
     public void setTipoRegistro(Integer tipoRegistro) {
         this.tipoRegistro = tipoRegistro;
     }
+
     @Field(offset = 4, length = 9)
-    public String getNumeroMatriz() {
-        return numeroMatriz;
+    public String getNumeroPVmatriz() {
+        return numeroPVmatriz;
     }
 
-    public void setNumeroMatriz(String numeroMatriz) {
-        this.numeroMatriz = numeroMatriz;
+    public void setNumeroPVmatriz(String numeroPVmatriz) {
+        this.numeroPVmatriz = numeroPVmatriz;
     }
+
     @Field(offset = 13, length = 22)
-    public String getNomeComercial() {
-        return nomeComercial;
+    public String getNomeComercialMatriz() {
+        return nomeComercialMatriz;
     }
 
-    public void setNomeComercial(String nomeComercial) {
-        this.nomeComercial = nomeComercial;
-    }
-
-    @Override
-    public String toString() {
-        return "Registro032HeaderMatriz{" + "tipoRegistro=" + tipoRegistro + ", numeroMatriz=" + numeroMatriz + ", nomeComercial=" + nomeComercial + '}';
+    public void setNomeComercialMatriz(String nomeComercialMatriz) {
+        this.nomeComercialMatriz = nomeComercialMatriz;
     }
 
 }

@@ -32,14 +32,15 @@ import java.util.Date;
 /**
  *
  * @author Kaique
- * @see https://www.userede.com.br/pt-BR/produtosservicos/Documents/Extrato_Eletronico/0208_EEFI_Rede_0263_ExtratosOnlineFinanciamento(portugues).pdf
+ * @see
+ * https://www.userede.com.br/pt-BR/produtosservicos/Documents/Extrato_Eletronico/0208_EEFI_Rede_0263_ExtratosOnlineFinanciamento(portugues).pdf
  */
 @Record
 public class Registro034Creditos implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPVcentralizador;
-    private Integer numeroDocumento;
+    private Long numeroDocumento;
     private Date dataLancamento;
     private Double valorLancamento;
     private String creditoC;
@@ -49,7 +50,7 @@ public class Registro034Creditos implements RegistroRedecard {
     private Date dataMovimento;
     private Integer numeroRV;
     private Date dataRV;
-    private Integer bandeira;
+    private String bandeira;
     private Integer tipoTransacao;
     private Double valorBrutoRV;
     private Double valorTaxaDesconto;
@@ -76,11 +77,11 @@ public class Registro034Creditos implements RegistroRedecard {
     }
 
     @Field(offset = 13, length = 11)
-    public Integer getNumeroDocumento() {
+    public Long getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(Integer numeroDocumento) {
+    public void setNumeroDocumento(Long numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 
@@ -169,11 +170,11 @@ public class Registro034Creditos implements RegistroRedecard {
     }
 
     @Field(offset = 93, length = 1)
-    public Integer getBandeira() {
+    public String getBandeira() {
         return bandeira;
     }
 
-    public void setBandeira(Integer bandeira) {
+    public void setBandeira(String bandeira) {
         this.bandeira = bandeira;
     }
 
@@ -229,6 +230,11 @@ public class Registro034Creditos implements RegistroRedecard {
 
     public void setNumeroPVoriginal(Integer numeroPVoriginal) {
         this.numeroPVoriginal = numeroPVoriginal;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro034Creditos{" + "tipoRegistro=" + tipoRegistro + ", numeroPVcentralizador=" + numeroPVcentralizador + ", numeroDocumento=" + numeroDocumento + ", dataLancamento=" + dataLancamento + ", valorLancamento=" + valorLancamento + ", creditoC=" + creditoC + ", banco=" + banco + ", agencia=" + agencia + ", contaCorrente=" + contaCorrente + ", dataMovimento=" + dataMovimento + ", numeroRV=" + numeroRV + ", dataRV=" + dataRV + ", bandeira=" + bandeira + ", tipoTransacao=" + tipoTransacao + ", valorBrutoRV=" + valorBrutoRV + ", valorTaxaDesconto=" + valorTaxaDesconto + ", numeroParcelaTotal=" + numeroParcelaTotal + ", statusCredito=" + statusCredito + ", numeroPVoriginal=" + numeroPVoriginal + '}';
     }
 
 }

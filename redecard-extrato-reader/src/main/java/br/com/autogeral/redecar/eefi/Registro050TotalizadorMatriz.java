@@ -135,4 +135,10 @@ public class Registro050TotalizadorMatriz implements RegistroRedecard{
         this.valorTotalAjustesDebito = valorTotalAjustesDebito;
     }
 
+    @Override
+    public String toString() {
+        return "Registro050TotalizadorMatriz{" + "tipoRegistro=" + tipoRegistro + ", numeroPVmatriz=" + numeroPVmatriz + ", quantidadeTotalResumosMatriz=" + quantidadeTotalResumosMatriz + ", valorTotalCreditosNormais=" + valorTotalCreditosNormais + ", quantidadeCreditosAntecipados=" + quantidadeCreditosAntecipados + ", valorTotalAntecipado=" + valorTotalAntecipado + ", quantidadeAjustesCredito=" + quantidadeAjustesCredito + ", valorTotalAjustesCredito=" + valorTotalAjustesCredito + ", quantidadeAjustesDebito=" + quantidadeAjustesDebito + ", valorTotalAjustesDebito=" + valorTotalAjustesDebito + '}';
+    }
+    
+
 }

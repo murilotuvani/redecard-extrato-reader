@@ -155,4 +155,9 @@ public class Registro052TrailerArquivo implements RegistroRedecard {
         this.valorTotalAjustesDebito = valorTotalAjustesDebito;
     }
 
+    @Override
+    public String toString() {
+        return "Registro052TrailerArquivo{" + "tipoRegistro=" + tipoRegistro + ", quantidadeMatrizesArquivo=" + quantidadeMatrizesArquivo + ", quantidadeRegistrosArquivo=" + quantidadeRegistrosArquivo + ", numeroPVgrupo=" + numeroPVgrupo + ", quantidadeTotalResumosGrupo=" + quantidadeTotalResumosGrupo + ", valorTotalDosCreditosNormais=" + valorTotalDosCreditosNormais + ", quantidadeCreditosAntecipados=" + quantidadeCreditosAntecipados + ", valorTotalAntecipado=" + valorTotalAntecipado + ", quantidadeAjustesCredito=" + quantidadeAjustesCredito + ", valorTotalAjustesCredto=" + valorTotalAjustesCredto + ", quantidadeAjustesDebito=" + quantidadeAjustesDebito + ", valorTotalAjustesDebito=" + valorTotalAjustesDebito + '}';
+    }
+
 }

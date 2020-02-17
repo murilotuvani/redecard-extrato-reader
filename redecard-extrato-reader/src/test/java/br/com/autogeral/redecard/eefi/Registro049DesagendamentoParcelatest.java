@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2020 Kaique.
+ * Copyright 2020 kaique.mota.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,23 +24,25 @@
 package br.com.autogeral.redecard.eefi;
 
 import br.com.autogeral.redecar.eefi.Registro034Creditos;
+import br.com.autogeral.redecar.eefi.Registro049DesagendamentodeParcelas;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
 import org.junit.Test;
 
 /**
+ * 17/02/2020 17:21:20
  *
- * @author Kaique
+ * @author kaique.mota
  */
-public class Registro034Creditostest {
-        private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+public class Registro049DesagendamentoParcelatest {
 
-       @Test
+    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+
+    @Test
     public void testParse() {
 
-        String expResult = "0340147974700900268984703062019000000000010058C3410002780000017738130052019032849995020120191200000000025105600000000000502105/0607014797470";
-           Registro034Creditos credito = fixedFormatManager.load(Registro034Creditos.class, expResult);
-        System.out.println(credito.toString());
+        String expResult = "04999999999999999999900340300014599717022014000000000063335000000000076002000000000012667120220140000000000779400000000000129901234******222222170120149999999999992013";
+        Registro049DesagendamentodeParcelas credito = fixedFormatManager.load(Registro049DesagendamentodeParcelas.class, expResult);
+
     }
-    
 }

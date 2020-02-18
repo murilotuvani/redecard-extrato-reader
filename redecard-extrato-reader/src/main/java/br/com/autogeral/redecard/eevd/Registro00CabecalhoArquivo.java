@@ -23,6 +23,8 @@
  */
 package br.com.autogeral.redecard.eevd;
 
+import br.com.autogeral.redecard.RegistroRedecard;
+import com.ancientprogramming.fixedformat4j.annotation.Align;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
@@ -34,7 +36,7 @@ import java.util.Date;
  * @author murilotuvani
  */
 @Record
-public class Registro00CabecalhoArquivo {
+public class Registro00CabecalhoArquivo implements RegistroRedecard{
 
     private Integer tipoRegistro;
     private Integer numeroFiliacao;
@@ -47,7 +49,7 @@ public class Registro00CabecalhoArquivo {
     private String tipoProcessamento;
     private String versaoArquivo;
 
-    @Field(offset = 1, length = 3)
+    @Field(offset = 1, length = 2)
     public Integer getTipoRegistro() {
         return tipoRegistro;
     }
@@ -56,7 +58,7 @@ public class Registro00CabecalhoArquivo {
         this.tipoRegistro = tipoRegistro;
     }
 
-    @Field(offset = 4, length = 9)
+    @Field(offset = 3, length = 9)
     public Integer getNumeroFiliacao() {
         return numeroFiliacao;
     }
@@ -65,7 +67,7 @@ public class Registro00CabecalhoArquivo {
         this.numeroFiliacao = numeroFiliacao;
     }
 
-    @Field(offset = 13, length = 8)
+    @Field(offset = 12, length = 8, paddingChar = '0', align = Align.LEFT)
     @FixedFormatPattern("ddMMyyyy")
     public Date getDataEmissao() {
         return dataEmissao;
@@ -75,7 +77,7 @@ public class Registro00CabecalhoArquivo {
         this.dataEmissao = dataEmissao;
     }
 
-    @Field(offset = 21, length = 8)
+    @Field(offset = 20, length = 8)
     @FixedFormatPattern("ddMMyyyy")
     public Date getDataMovimento() {
         return dataMovimento;
@@ -85,7 +87,7 @@ public class Registro00CabecalhoArquivo {
         this.dataMovimento = dataMovimento;
     }
 
-    @Field(offset = 29, length = 39)
+    @Field(offset = 28, length = 39)
     public String getMovimentacaoDiaria() {
         return movimentacaoDiaria;
     }
@@ -94,7 +96,7 @@ public class Registro00CabecalhoArquivo {
         this.movimentacaoDiaria = movimentacaoDiaria;
     }
 
-    @Field(offset = 68, length = 8)
+    @Field(offset = 67, length = 8)
     public String getAdquirente() {
         return adquirente;
     }
@@ -103,7 +105,7 @@ public class Registro00CabecalhoArquivo {
         this.adquirente = adquirente;
     }
 
-    @Field(offset = 76, length = 26)
+    @Field(offset = 75, length = 26)
     public String getNomeEstabelecimento() {
         return nomeEstabelecimento;
     }
@@ -112,7 +114,7 @@ public class Registro00CabecalhoArquivo {
         this.nomeEstabelecimento = nomeEstabelecimento;
     }
 
-    @Field(offset = 102, length = 6)
+    @Field(offset = 101, length = 6)
     public Integer getSequencia() {
         return sequencia;
     }
@@ -121,7 +123,7 @@ public class Registro00CabecalhoArquivo {
         this.sequencia = sequencia;
     }
 
-    @Field(offset = 108, length = 15)
+    @Field(offset = 107, length = 15)
     public String getTipoProcessamento() {
         return tipoProcessamento;
     }
@@ -130,7 +132,7 @@ public class Registro00CabecalhoArquivo {
         this.tipoProcessamento = tipoProcessamento;
     }
 
-    @Field(offset = 123, length = 20)
+    @Field(offset = 122, length = 20)
     public String getVersaoArquivo() {
         return versaoArquivo;
     }

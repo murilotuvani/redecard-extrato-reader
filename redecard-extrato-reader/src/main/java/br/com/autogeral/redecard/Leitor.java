@@ -26,11 +26,17 @@ package br.com.autogeral.redecard;
 import br.com.autogeral.redecar.eefi.Registro030HeaderArquivo;
 import br.com.autogeral.redecar.eefi.Registro032HeaderMatriz;
 import br.com.autogeral.redecar.eefi.Registro034Creditos;
+import br.com.autogeral.redecar.eefi.Registro035AjustesNetDesagendamentos;
 import br.com.autogeral.redecar.eefi.Registro037TotalizadorCreditos;
 import br.com.autogeral.redecar.eefi.Registro040Serasa;
 import br.com.autogeral.redecar.eefi.Registro049DesagendamentodeParcelas;
 import br.com.autogeral.redecar.eefi.Registro050TotalizadorMatriz;
 import br.com.autogeral.redecar.eefi.Registro052TrailerArquivo;
+import br.com.autogeral.redecar.eesa.Registro062CabecalhoArquivo;
+import br.com.autogeral.redecar.eesa.Registro066TotalizadorMatriz;
+import br.com.autogeral.redecar.eesa.Registro068TrailerArquivo;
+import br.com.autogeral.redecar.eesa.RegistroTipo060CabecalhoArquivo;
+import br.com.autogeral.redecar.eesa.RegistroTipo061CabecalhoArquivo;
 import br.com.autogeral.redecard.eevc.Registro002HeaderArquivo;
 import br.com.autogeral.redecard.eevc.Registro006RVrotativo;
 import br.com.autogeral.redecard.eevc.Registro008CVnsuRotativo;
@@ -40,6 +46,13 @@ import br.com.autogeral.redecard.eevc.Registro026TotalizadorMatriz;
 import br.com.autogeral.redecard.eevc.Registro028TrailerArquivo;
 import br.com.autogeral.redecard.eevc.Registro040CVnsuRecarga;
 import br.com.autogeral.redecard.eevc.Registro12CVnsuparceladosemJuros;
+import br.com.autogeral.redecard.eevd.Registro00CabecalhoArquivo;
+import br.com.autogeral.redecard.eevd.RegistroTipo01ResumoVendas;
+import br.com.autogeral.redecard.eevd.RegistroTipo02TotalpontoVenda;
+import br.com.autogeral.redecard.eevd.RegistroTipo03TotalMatriz;
+import br.com.autogeral.redecard.eevd.RegistroTipo04TotalArquivo;
+import br.com.autogeral.redecard.eevd.RegistroTipo05DetalhamentoComprovantes;
+import br.com.autogeral.redecard.eevd.RegistroTipo11AjustesNet;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
 import java.io.BufferedReader;
@@ -73,13 +86,14 @@ public class Leitor {
         arquivos = diretorio.listFiles();
         for (File i : arquivos) {
             if (i.getName().toLowerCase().contains("eevc")
-                    || i.getName().toLowerCase().contains("eefi")) {
-                l.lerEevc(i);
+                    || i.getName().toLowerCase().contains("eefi")
+                    || i.getName().toLowerCase().contains("eevd")) {
+                l.lerArquivo(i);
             }
         }
     }
 
-    private void lerEevc(File file) {
+    private void lerArquivo(File file) {
 
         System.out.println("Lendo : " + file.getAbsolutePath());
         if (file.exists()) {
@@ -103,10 +117,40 @@ public class Leitor {
         System.out.println("Linha :" + l);
         String tipoRegistro = l.substring(0, 3);
         switch (tipoRegistro) {
+            case "00": {
+                Registro00CabecalhoArquivo cabecalho = FFM.load(Registro00CabecalhoArquivo.class, l);
+                System.out.println(cabecalho.toString());
+                registros.add(cabecalho);
+            }
+            break;
+            case "01": {
+                RegistroTipo01ResumoVendas resumoVendas = FFM.load(RegistroTipo01ResumoVendas.class, l);
+                System.out.println(resumoVendas.toString());
+                registros.add(resumoVendas);
+            }
+            break;
+            case "02": {
+                RegistroTipo02TotalpontoVenda totalPontoVenda = FFM.load(RegistroTipo02TotalpontoVenda.class, l);
+                System.out.println(totalPontoVenda.toString());
+                registros.add(totalPontoVenda);
+            }
+            break;
             case "002": {
                 Registro002HeaderArquivo recordHeader = FFM.load(Registro002HeaderArquivo.class, l);
                 System.out.println(recordHeader.toString());
                 registros.add(recordHeader);
+            }
+            break;
+            case "04": {
+                RegistroTipo04TotalArquivo totalArquivo = FFM.load(RegistroTipo04TotalArquivo.class, l);
+                System.out.println(totalArquivo.toString());
+                registros.add(totalArquivo);
+            }
+            break;
+            case "05": {
+                RegistroTipo05DetalhamentoComprovantes detalhamento = FFM.load(RegistroTipo05DetalhamentoComprovantes.class, l);
+                System.out.println(detalhamento.toString());
+                registros.add(detalhamento);
             }
             break;
 
@@ -130,6 +174,12 @@ public class Leitor {
                 System.out.println(recordParceladosemJuros.toString());
                 registros.add(recordParceladosemJuros);
 
+            }
+            break;
+            case "11": {
+                RegistroTipo11AjustesNet ajusteNet = FFM.load(RegistroTipo11AjustesNet.class, l);
+                System.out.println(ajusteNet.toString());
+                registros.add(ajusteNet);
             }
             break;
 
@@ -175,17 +225,26 @@ public class Leitor {
 
             case "032": {
                 Registro032HeaderMatriz headerMatriz = FFM.load(Registro032HeaderMatriz.class, l);
+                System.out.println(headerMatriz.toString());
                 registros.add(headerMatriz);
 
             }
             break;
             case "034": {
                 Registro034Creditos registroCreditos = FFM.load(Registro034Creditos.class, l);
+                System.out.println(registroCreditos.toString());
                 registros.add(registroCreditos);
+            }
+            break;
+            case "035": {
+                Registro035AjustesNetDesagendamentos ajustes = FFM.load(Registro035AjustesNetDesagendamentos.class, l);
+                System.out.println(ajustes.toString());
+                registros.add(ajustes);
             }
             break;
             case "037": {
                 Registro037TotalizadorCreditos totalizador = FFM.load(Registro037TotalizadorCreditos.class, l);
+                System.out.println(totalizador.toString());
                 registros.add(totalizador);
 
             }
@@ -205,19 +264,48 @@ public class Leitor {
 
             case "050": {
                 Registro050TotalizadorMatriz totalizadorMatriz = FFM.load(Registro050TotalizadorMatriz.class, l);
+                System.out.println(totalizadorMatriz.toString());
                 registros.add(totalizadorMatriz);
 
             }
             break;
             case "052": {
                 Registro052TrailerArquivo trailerMatriz = FFM.load(Registro052TrailerArquivo.class, l);
+                System.out.println(trailerMatriz.toString());
                 registros.add(trailerMatriz);
+
+            }
+            break;
+            case "062": {
+                Registro062CabecalhoArquivo cabecalhoArquivo = FFM.load(Registro062CabecalhoArquivo.class, l);
+                registros.add(cabecalhoArquivo);
+            }
+            break;
+
+            case "066": {
+                Registro066TotalizadorMatriz totalizadorMatriz = FFM.load(Registro066TotalizadorMatriz.class, l);
+                registros.add(totalizadorMatriz);
+            }
+            break;
+            case "068": {
+                Registro068TrailerArquivo registro068TrailerArquivo = FFM.load(Registro068TrailerArquivo.class, l);
+                registros.add(registro068TrailerArquivo);
+            }
+            break;
+
+            case "060": {
+                RegistroTipo060CabecalhoArquivo registro060Cabecalho = FFM.load(RegistroTipo060CabecalhoArquivo.class, l);
+                registros.add(registro060Cabecalho);
+            }
+            break;
+            case "061": {
+                RegistroTipo061CabecalhoArquivo registro061Cabecalho = FFM.load(RegistroTipo061CabecalhoArquivo.class, l);
+                registros.add(registro061Cabecalho);
 
             }
             break;
 
         }
-
     }
 
 }

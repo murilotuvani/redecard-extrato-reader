@@ -21,50 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecar.eesa;
+package br.com.autogeral.redecard.eefi;
 
-import br.com.autogeral.redecard.RegistroRedecard;
-import com.ancientprogramming.fixedformat4j.annotation.Field;
-import com.ancientprogramming.fixedformat4j.annotation.Record;
+import br.com.autogeral.redecar.eefi.Registro035AjustesNetDesagendamentos;
+import br.com.autogeral.redecar.eefi.Registro049DesagendamentodeParcelas;
+import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
+import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import org.junit.Test;
 
 /**
- * 17/02/2020 17:40:50
+ * 18/02/2020 16:25:22
  *
- * @see https://www.userede.com.br/novo/documentos
  * @author kaique.mota
  */
-@Record
-public class RegistroTipo061CabecalhoArquivo implements RegistroRedecard{
+public class Registro035AjustesNetDesagendamentotest {
 
-    private Integer tipoRegistro;
-    private String numeroPVmatriz;
-    private String nomeComercialMatriz;
+    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
-    @Field(offset = 1, length = 3)
-    public Integer getTipoRegistro() {
-        return tipoRegistro;
-    }
+    @Test
+    public void testParse() {
 
-    public void setTipoRegistro(Integer tipoRegistro) {
-        this.tipoRegistro = tipoRegistro;
-    }
+        String expResult = "03501479747008704967406032019000000000004593D18CANCEL.DE VENDAS            498453XXXXXX3461040320190870496743190651250206800603201900000001479747004032019000000000014058D04062019000000000059572000000000064165000000000280007000000000014058000248144170058291T0906358875400000000000000000000000000000033";
+        Registro035AjustesNetDesagendamentos credito = fixedFormatManager.load(Registro035AjustesNetDesagendamentos.class, expResult);
 
-    @Field(offset = 4, length = 9)
-    public String getNumeroPVmatriz() {
-        return numeroPVmatriz;
-    }
-
-    public void setNumeroPVmatriz(String numeroPVmatriz) {
-        this.numeroPVmatriz = numeroPVmatriz;
-    }
-
-    @Field(offset = 13, length = 22)
-    public String getNomeComercialMatriz() {
-        return nomeComercialMatriz;
-    }
-
-    public void setNomeComercialMatriz(String nomeComercialMatriz) {
-        this.nomeComercialMatriz = nomeComercialMatriz;
     }
 
 }

@@ -23,6 +23,7 @@
  */
 package br.com.autogeral.redecar.eesa;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 import java.util.Date;
@@ -34,9 +35,9 @@ import java.util.Date;
  * @see https://www.userede.com.br/novo/documentos
  */
 @Record
-public class RegistroTipo060CabecalhoArquivo {
+public class RegistroTipo060CabecalhoArquivo implements RegistroRedecard {
 
-    private Integer tiporegistro;
+    private Integer tipoRegistro;
     private Date dataEmissao;
     private String adquirente;
     private String extratoEletronicoSaldosAberto;
@@ -47,12 +48,12 @@ public class RegistroTipo060CabecalhoArquivo {
     private String versaoArquivo;
 
     @Field(offset = 1, length = 3)
-    public Integer getTiporegistro() {
-        return tiporegistro;
+    public Integer getTipoRegistro() {
+        return tipoRegistro;
     }
 
-    public void setTiporegistro(Integer tiporegistro) {
-        this.tiporegistro = tiporegistro;
+    public void setTipoRegistro(Integer tipoRegistro) {
+        this.tipoRegistro = tipoRegistro;
     }
 
     @Field(offset = 4, length = 8)

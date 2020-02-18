@@ -23,6 +23,7 @@
  */
 package br.com.autogeral.redecar.eesa;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 
@@ -33,7 +34,7 @@ import com.ancientprogramming.fixedformat4j.annotation.Record;
  * @see https://www.userede.com.br/novo/documentos
  */
 @Record
-public class Registro066TotalizadorMatriz {
+public class Registro066TotalizadorMatriz implements RegistroRedecard{
 
     private Integer tipoRegistro;
     private Integer numeroPVmatriz;

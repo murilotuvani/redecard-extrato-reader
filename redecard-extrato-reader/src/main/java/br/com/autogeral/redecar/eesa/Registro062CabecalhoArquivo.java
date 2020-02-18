@@ -23,6 +23,7 @@
  */
 package br.com.autogeral.redecar.eesa;
 
+import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
@@ -35,7 +36,7 @@ import java.util.Date;
  * @author kaique.mota
  */
 @Record
-public class Registro062CabecalhoArquivo {
+public class Registro062CabecalhoArquivo implements RegistroRedecard{
 
     private Integer tipoRegistro;
     private Integer numeroOrdemCredito;

@@ -23,11 +23,13 @@
  */
 package br.com.autogeral.redecard.eevd;
 
-import br.com.autogeral.redecard.eevc.Registro002HeaderArquivo;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import static junit.framework.TestCase.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -40,14 +42,40 @@ public class Registro00CabecalhoArquivoTest {
     /**
      * Test of getTipoRegistro method, of class Registro00CabecalhoArquivo.
      */
- 
-       @Test
+    Integer tipoRegistro = 00;
+    Integer numeroFiliacao = 14797470;
+    Date dataEmissao = java.sql.Date.valueOf(LocalDate.parse("04062019", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Date dataMovimento = java.sql.Date.valueOf(LocalDate.parse("03062019", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    String movimentacaoDiaria = "Movimentacao diaria - Cartoes de Debito";
+    String adquirente = "Redecard";
+    String nomeEstabelecimento = "AUTO GERAL";
+    Integer sequencia = 81;
+    String tipoProcessamento = "DIARIO";
+    String versaoArquivo = "V1.04 - 07/10 - EEVD";
+
+    @Test
     public void testParse() {
         String expResult = "00,014797470,04062019,03062019,Movimentacao diaria - Cartoes de Debito,Redecard,AUTO GERAL                ,000081,DIARIO         ,V1.04 - 07/10 - EEVD";
-        expResult =  expResult.replace(",", " ");
+        expResult = expResult.replace(",", "");
         Registro00CabecalhoArquivo recordHeader = manager.load(Registro00CabecalhoArquivo.class, expResult);
         System.out.println(recordHeader.toString());
     }
-    
 
+    @Test
+    public void testEquals() {
+        String expResult = "00,014797470,04062019,03062019,Movimentacao diaria - Cartoes de Debito,Redecard,AUTO GERAL                ,000081,DIARIO         ,V1.04 - 07/10 - EEVD";
+        expResult = expResult.replace(",", "");
+        
+        Registro00CabecalhoArquivo recordHeader = manager.load(Registro00CabecalhoArquivo.class, expResult);
+        assertEquals(recordHeader.getTipoRegistro(), tipoRegistro);
+        assertEquals(recordHeader.getNumeroFiliacao(), numeroFiliacao);
+        assertEquals(recordHeader.getDataEmissao(), dataEmissao);
+        assertEquals(recordHeader.getDataMovimento(), dataMovimento);
+        assertEquals(recordHeader.getMovimentacaoDiaria(), movimentacaoDiaria);
+        assertEquals(recordHeader.getAdquirente(), adquirente);
+        assertEquals(recordHeader.getNomeEstabelecimento(), nomeEstabelecimento);
+        assertEquals(recordHeader.getSequencia(), sequencia);
+        assertEquals(recordHeader.getTipoProcessamento(), tipoProcessamento);
+        assertEquals(recordHeader.getVersaoArquivo(), versaoArquivo);
+    }
 }

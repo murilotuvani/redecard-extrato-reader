@@ -36,6 +36,9 @@ import org.junit.Test;
 public class Registro004HeaderMatrizTeste extends TestCase {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+    Integer tipoRegistro = 4;
+    String nPVMatriz = "099999999";
+    String nomeComercialMatriz = "OTICA OTICA";
 
     @Test
     public void testEEVDRegistro00CabecalhoArquivoSerialize() {
@@ -56,6 +59,14 @@ public class Registro004HeaderMatrizTeste extends TestCase {
         record.setnPVMatriz("099999999");
         String atual = fixedFormatManager.export(record);
         assertEquals(expResult, atual);
+    }
 
+    @Test
+    public void testEquals() {
+        String expResult = "004099999999OTICA OTICA           ";
+        Registro004HeaderMatriz recordHeaderArquivo = fixedFormatManager.load(Registro004HeaderMatriz.class, expResult);
+        assertEquals(recordHeaderArquivo.getTipoRegistro(), tipoRegistro);
+        assertEquals(recordHeaderArquivo.getnPVMatriz(), nPVMatriz);
+        assertEquals(recordHeaderArquivo.getNomeComercialMatriz(), nomeComercialMatriz);
     }
 }

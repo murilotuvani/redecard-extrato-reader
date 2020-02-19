@@ -27,41 +27,39 @@ import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
 import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
-import static java.lang.Character.UnicodeBlock.of;
 import java.util.Date;
 
 /**
- * 18/02/2020 16:39:00
+ * 19/02/2020 09:06:24
  *
  * @author kaique.mota
  * @see https://www.userede.com.br/novo/documentos
  */
 @Record
-public class Registro044DebitosPendentes implements RegistroRedecard {
+public class Registro045DebitosLiquidados implements RegistroRedecard{
 
     private Integer tipoRegistro;
-    private Integer numeroPVajustado;
+    private Integer numeroPV;
     private Long numeroOrdemDebito;
     private Date dataOD;
     private Double valorOD;
     private Integer motivoAjuste;
     private String motivoAjusteText;
     private String numeroCartao;
-    private Long numeroNSU;
-    private Date dataCVoriginaltransação;
+    private Long numeroNsu;
+    private Date dataCVoriginal;
     private String numeroAutorizacao;
-    private Double valorOriginal;
+    private Double valorTransacaoOriginal;
     private Integer numeroRVoriginal;
     private Date dataRVoriginal;
     private Integer numeroPVoriginal;
-    private String numeroReferenciaCarta;
+    private String numeroReferencia;
     private Date dataCarta;
     private Long numeroProcessoChargeback;
     private Integer mesReferencia;
-    private Double valorCompensado;
-    private Date dataPagamento;
-    private Double valorPendenteDebito;
-    private Integer numeroProcessoRetencao;
+    private Double valorLiquido;
+    private Date dataLiquidacao;
+    private String numeroProcessoRetencao;
     private Integer meioCompensacao;
     private String meioCompensacaoText;
     private String identificaBandeira;
@@ -76,12 +74,12 @@ public class Registro044DebitosPendentes implements RegistroRedecard {
     }
 
     @Field(offset = 4, length = 9)
-    public Integer getNumeroPVajustado() {
-        return numeroPVajustado;
+    public Integer getNumeroPV() {
+        return numeroPV;
     }
 
-    public void setNumeroPVajustado(Integer numeroPVajustado) {
-        this.numeroPVajustado = numeroPVajustado;
+    public void setNumeroPV(Integer numeroPV) {
+        this.numeroPV = numeroPV;
     }
 
     @Field(offset = 13, length = 11)
@@ -140,22 +138,22 @@ public class Registro044DebitosPendentes implements RegistroRedecard {
     }
 
     @Field(offset = 93, length = 12)
-    public Long getNumeroNSU() {
-        return numeroNSU;
+    public Long getNumeroNsu() {
+        return numeroNsu;
     }
 
-    public void setNumeroNSU(Long numeroNSU) {
-        this.numeroNSU = numeroNSU;
+    public void setNumeroNsu(Long numeroNsu) {
+        this.numeroNsu = numeroNsu;
     }
 
     @Field(offset = 105, length = 8)
     @FixedFormatPattern("ddMMyyyy")
-    public Date getDataCVoriginaltransação() {
-        return dataCVoriginaltransação;
+    public Date getDataCVoriginal() {
+        return dataCVoriginal;
     }
 
-    public void setDataCVoriginaltransação(Date dataCVoriginaltransação) {
-        this.dataCVoriginaltransação = dataCVoriginaltransação;
+    public void setDataCVoriginal(Date dataCVoriginal) {
+        this.dataCVoriginal = dataCVoriginal;
     }
 
     @Field(offset = 113, length = 6)
@@ -168,12 +166,12 @@ public class Registro044DebitosPendentes implements RegistroRedecard {
     }
 
     @Field(offset = 119, length = 15)
-    public Double getValorOriginal() {
-        return valorOriginal;
+    public Double getValorTransacaoOriginal() {
+        return valorTransacaoOriginal;
     }
 
-    public void setValorOriginal(Double valorOriginal) {
-        this.valorOriginal = valorOriginal;
+    public void setValorTransacaoOriginal(Double valorTransacaoOriginal) {
+        this.valorTransacaoOriginal = valorTransacaoOriginal;
     }
 
     @Field(offset = 134, length = 9)
@@ -205,12 +203,12 @@ public class Registro044DebitosPendentes implements RegistroRedecard {
     }
 
     @Field(offset = 160, length = 15)
-    public String getNumeroReferenciaCarta() {
-        return numeroReferenciaCarta;
+    public String getNumeroReferencia() {
+        return numeroReferencia;
     }
 
-    public void setNumeroReferenciaCarta(String numeroReferenciaCarta) {
-        this.numeroReferenciaCarta = numeroReferenciaCarta;
+    public void setNumeroReferencia(String numeroReferencia) {
+        this.numeroReferencia = numeroReferencia;
     }
 
     @Field(offset = 175, length = 8)
@@ -242,43 +240,34 @@ public class Registro044DebitosPendentes implements RegistroRedecard {
     }
 
     @Field(offset = 204, length = 15)
-    public Double getValorCompensado() {
-        return valorCompensado;
+    public Double getValorLiquido() {
+        return valorLiquido;
     }
 
-    public void setValorCompensado(Double valorCompensado) {
-        this.valorCompensado = valorCompensado;
+    public void setValorLiquido(Double valorLiquido) {
+        this.valorLiquido = valorLiquido;
     }
 
     @Field(offset = 219, length = 8)
     @FixedFormatPattern("ddMMyyyy")
-    public Date getDataPagamento() {
-        return dataPagamento;
+    public Date getDataLiquidacao() {
+        return dataLiquidacao;
     }
 
-    public void setDataPagamento(Date dataPagamento) {
-        this.dataPagamento = dataPagamento;
+    public void setDataLiquidacao(Date dataLiquidacao) {
+        this.dataLiquidacao = dataLiquidacao;
     }
 
     @Field(offset = 227, length = 15)
-    public Double getValorPendenteDebito() {
-        return valorPendenteDebito;
-    }
-
-    public void setValorPendenteDebito(Double valorPendenteDebito) {
-        this.valorPendenteDebito = valorPendenteDebito;
-    }
-
-    @Field(offset = 242, length = 15)
-    public Integer getNumeroProcessoRetencao() {
+    public String getNumeroProcessoRetencao() {
         return numeroProcessoRetencao;
     }
 
-    public void setNumeroProcessoRetencao(Integer numeroProcessoRetencao) {
+    public void setNumeroProcessoRetencao(String numeroProcessoRetencao) {
         this.numeroProcessoRetencao = numeroProcessoRetencao;
     }
 
-    @Field(offset = 257, length = 2)
+    @Field(offset = 242, length = 2)
     public Integer getMeioCompensacao() {
         return meioCompensacao;
     }
@@ -287,7 +276,7 @@ public class Registro044DebitosPendentes implements RegistroRedecard {
         this.meioCompensacao = meioCompensacao;
     }
 
-    @Field(offset = 259, length = 28)
+    @Field(offset = 244, length = 28)
     public String getMeioCompensacaoText() {
         return meioCompensacaoText;
     }
@@ -296,7 +285,7 @@ public class Registro044DebitosPendentes implements RegistroRedecard {
         this.meioCompensacaoText = meioCompensacaoText;
     }
 
-    @Field(offset = 287, length = 1)
+    @Field(offset = 272, length = 1)
     public String getIdentificaBandeira() {
         return identificaBandeira;
     }
@@ -307,7 +296,8 @@ public class Registro044DebitosPendentes implements RegistroRedecard {
 
     @Override
     public String toString() {
-        return "Registro044DebitosPendentes{" + "tipoRegistro=" + tipoRegistro + ", numeroPVajustado=" + numeroPVajustado + ", numeroOrdemDebito=" + numeroOrdemDebito + ", dataOD=" + dataOD + ", valorOD=" + valorOD + ", motivoAjuste=" + motivoAjuste + ", motivoAjusteText=" + motivoAjusteText + ", numeroCartao=" + numeroCartao + ", numeroNSU=" + numeroNSU + ", dataCVoriginaltransa\u00e7\u00e3o=" + dataCVoriginaltransação + ", numeroAutorizacao=" + numeroAutorizacao + ", valorOriginal=" + valorOriginal + ", numeroRVoriginal=" + numeroRVoriginal + ", dataRVoriginal=" + dataRVoriginal + ", numeroPVoriginal=" + numeroPVoriginal + ", numeroReferenciaCarta=" + numeroReferenciaCarta + ", dataCarta=" + dataCarta + ", numeroProcessoChargeback=" + numeroProcessoChargeback + ", mesReferencia=" + mesReferencia + ", valorCompensado=" + valorCompensado + ", dataPagamento=" + dataPagamento + ", valorPendenteDebito=" + valorPendenteDebito + ", numeroProcessoRetencao=" + numeroProcessoRetencao + ", meioCompensacao=" + meioCompensacao + ", meioCompensacaoText=" + meioCompensacaoText + ", identificaBandeira=" + identificaBandeira + '}';
+        return "Registro045DebitosLiquidados{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", numeroOrdemDebito=" + numeroOrdemDebito + ", dataOD=" + dataOD + ", valorOD=" + valorOD + ", motivoAjuste=" + motivoAjuste + ", motivoAjusteText=" + motivoAjusteText + ", numeroCartao=" + numeroCartao + ", numeroNsu=" + numeroNsu + ", dataCVoriginal=" + dataCVoriginal + ", numeroAutorizacao=" + numeroAutorizacao + ", valorTransacaoOriginal=" + valorTransacaoOriginal + ", numeroRVoriginal=" + numeroRVoriginal + ", dataRVoriginal=" + dataRVoriginal + ", numeroPVoriginal=" + numeroPVoriginal + ", numeroReferencia=" + numeroReferencia + ", dataCarta=" + dataCarta + ", numeroProcessoChargeback=" + numeroProcessoChargeback + ", mesReferencia=" + mesReferencia + ", valorLiquido=" + valorLiquido + ", dataLiquidacao=" + dataLiquidacao + ", numeroProcessoRetencao=" + numeroProcessoRetencao + ", meioCompensacao=" + meioCompensacao + ", meioCompensacaoText=" + meioCompensacaoText + ", identificaBandeira=" + identificaBandeira + '}';
     }
 
+    
 }

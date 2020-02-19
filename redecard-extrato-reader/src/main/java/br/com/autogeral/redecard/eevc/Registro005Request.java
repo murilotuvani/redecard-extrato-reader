@@ -43,8 +43,8 @@ public class Registro005Request implements RegistroRedecard {
     private String numeroCartao;
     private Double valorTransacao;
     private Date dataTranslacao;
-    private Integer numeroReferencia;
-    private Integer numeroProcesso;
+    private Long numeroReferencia;
+    private Long numeroProcesso;
     private Integer numeroCVNSU;
     private String numeroAutorizacao;
     private String codigoRequest;
@@ -98,7 +98,7 @@ public class Registro005Request implements RegistroRedecard {
     }
 
     @Field(offset = 53, length = 8)
-    @FixedFormatPattern("yyyyMMdd")
+    @FixedFormatPattern("ddMMyyyy")
     public Date getDataTranslacao() {
         return dataTranslacao;
     }
@@ -108,20 +108,20 @@ public class Registro005Request implements RegistroRedecard {
     }
 
     @Field(offset = 61, length = 15)
-    public Integer getNumeroReferencia() {
+    public Long getNumeroReferencia() {
         return numeroReferencia;
     }
 
-    public void setNumeroReferencia(Integer numeroReferencia) {
+    public void setNumeroReferencia(Long numeroReferencia) {
         this.numeroReferencia = numeroReferencia;
     }
 
     @Field(offset = 76, length = 15)
-    public Integer getNumeroProcesso() {
+    public Long getNumeroProcesso() {
         return numeroProcesso;
     }
 
-    public void setNumeroProcesso(Integer numeroProcesso) {
+    public void setNumeroProcesso(Long numeroProcesso) {
         this.numeroProcesso = numeroProcesso;
     }
 
@@ -179,4 +179,10 @@ public class Registro005Request implements RegistroRedecard {
         this.livre = livre;
     }
 
+    @Override
+    public String toString() {
+        return "Registro005Request{" + "tipoRegistro=" + tipoRegistro + ", numeroPV=" + numeroPV + ", numeroRV=" + numeroRV + ", numeroCartao=" + numeroCartao + ", valorTransacao=" + valorTransacao + ", dataTranslacao=" + dataTranslacao + ", numeroReferencia=" + numeroReferencia + ", numeroProcesso=" + numeroProcesso + ", numeroCVNSU=" + numeroCVNSU + ", numeroAutorizacao=" + numeroAutorizacao + ", codigoRequest=" + codigoRequest + ", limiteEnvioDocumentos=" + limiteEnvioDocumentos + ", bandeira=" + bandeira + ", livre=" + livre + '}';
+    }
+
+    
 }

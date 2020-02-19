@@ -67,7 +67,7 @@ public class Registro00CabecalhoArquivo implements RegistroRedecard{
         this.numeroFiliacao = numeroFiliacao;
     }
 
-    @Field(offset = 12, length = 8, paddingChar = '0', align = Align.LEFT)
+    @Field(offset = 12, length = 8)
     @FixedFormatPattern("ddMMyyyy")
     public Date getDataEmissao() {
         return dataEmissao;

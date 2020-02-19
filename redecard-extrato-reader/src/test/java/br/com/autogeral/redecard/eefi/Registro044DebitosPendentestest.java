@@ -21,25 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package br.com.autogeral.redecard.eefi;
 
-package br.com.autogeral.redecard.eevc;
-
+import br.com.autogeral.redecar.eefi.Registro034Creditos;
+import br.com.autogeral.redecar.eefi.Registro044DebitosPendentes;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
 import org.junit.Test;
 
 /**
- * 11/02/2020 16:53:12
+ * 19/02/2020 08:13:30
+ *
  * @author kaique.mota
  */
-public class Registro011ExtratoEletronicoVendasTest {
-      private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+public class Registro044DebitosPendentestest {
+
+    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
     @Test
     public void testParse() {
 
-        String expResult = "";
-        Registro011ExtratoEletronicoVendas recordRVrotativo = fixedFormatManager.load(Registro011ExtratoEletronicoVendas.class, expResult);
+        String expResult = "044999999999140790105092003201400000000005414623CONTESTACAO VDA             1234******22222299999999999913022014777777000000000165668999999999130220149999999990064072006309971302201488888888888888802201400000000000000000000000000000000054146               00                            1";
+        Registro044DebitosPendentes pendentes = fixedFormatManager.load(Registro044DebitosPendentes.class, expResult);
+        System.out.println(pendentes.toString());
     }
 
 }

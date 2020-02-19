@@ -89,7 +89,7 @@ public class Registro008CVnsuRotativo implements RegistroRedecard {
     }
 
     @Field(offset = 22, length = 8)
-    @FixedFormatPattern("yyyyMMdd")
+    @FixedFormatPattern("ddMMyyyy")
     public Date getDataCVnsu() {
         return dataCVnsu;
     }

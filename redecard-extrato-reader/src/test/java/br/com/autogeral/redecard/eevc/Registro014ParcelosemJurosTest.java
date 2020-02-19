@@ -21,24 +21,59 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package br.com.autogeral.redecard.eevc;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import static junit.framework.TestCase.assertEquals;
 import org.junit.Test;
 
 /**
  * 11/02/2020 17:59:21
+ *
  * @author kaique.mota
  */
 public class Registro014ParcelosemJurosTest {
- private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+
+    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+    Integer tipoRegistro = 14;
+    Integer numeroPV = 14797470;
+    Integer numeroRV = 9949683;
+    Date dataRV = java.sql.Date.valueOf(LocalDate.parse("31052019", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Integer brancos = 0;
+    Integer numParcela = 1;
+    Double valorParcelaBruto = 2309.23;
+    Double valorDescontoParcela = 109.45;
+    Double valorParcelaLiquida = 2199.78;
+    Date dataCredito = java.sql.Date.valueOf(LocalDate.parse("04062019", DateTimeFormatter.ofPattern("ddMMyyyy")));
 
     @Test
     public void testParse() {
 
         String expResult = "01401479747000994968331052019000000000100000000023092300000000001094500000000021997804062019";
         Registro014ParcelosemJuros recordParcelaSemJuros = fixedFormatManager.load(Registro014ParcelosemJuros.class, expResult);
+        System.out.println(recordParcelaSemJuros.toString());
+    }
+
+    @Test
+    public void testEquals() {
+
+        String expResult = "01401479747000994968331052019000000000100000000023092300000000001094500000000021997804062019";
+        Registro014ParcelosemJuros recordParcelaSemJuros = fixedFormatManager.load(Registro014ParcelosemJuros.class, expResult);
+
+        assertEquals(recordParcelaSemJuros.getTipoRegistro(), tipoRegistro);
+        assertEquals(recordParcelaSemJuros.getNumeroPV(), numeroPV);
+        assertEquals(recordParcelaSemJuros.getNumeroRV(), numeroRV);
+        assertEquals(recordParcelaSemJuros.getDataRV(), dataRV);
+        assertEquals(recordParcelaSemJuros.getBrancos(), brancos);
+        assertEquals(recordParcelaSemJuros.getNumParcela(), numParcela);
+        assertEquals(recordParcelaSemJuros.getValorParcelaBruto(), valorParcelaBruto);
+        assertEquals(recordParcelaSemJuros.getValorDescontoParcela(), valorDescontoParcela);
+        assertEquals(recordParcelaSemJuros.getValorParcelaLiquida(), valorParcelaLiquida);
+        assertEquals(recordParcelaSemJuros.getDataCredito(), dataCredito);
+        
     }
 }

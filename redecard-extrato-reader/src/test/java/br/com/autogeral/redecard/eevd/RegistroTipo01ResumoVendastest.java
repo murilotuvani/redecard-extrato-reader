@@ -57,7 +57,7 @@ public class RegistroTipo01ResumoVendastest {
 
     @Test
     public void testParse() {
-        String expResult = "01,014797470,04062019,03062019,154589975,000011,000000000201196,000000000003019,000000000198177,D,341,000278,00000924717,E";
+        String expResult = "01,039188892,17062019,14062019,165482087,000001,000000000007500,000000000000079,000000000007421,D,341,000278,00000924717,3";
         expResult = expResult.replace(",", "");
         RegistroTipo01ResumoVendas recordHeader = manager.load(RegistroTipo01ResumoVendas.class, expResult);
         System.out.println(recordHeader.toString());

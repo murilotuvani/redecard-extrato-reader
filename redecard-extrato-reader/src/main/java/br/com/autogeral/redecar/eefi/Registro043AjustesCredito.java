@@ -21,35 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecard.eevc;
+package br.com.autogeral.redecar.eefi;
 
 import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
-import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 import java.util.Date;
 
 /**
- * 11/02/2020 16:44:35
+ * 19/02/2020 09:27:09
  *
  * @author kaique.mota
+ * @ see https://www.userede.com.br/novo/documentos
  */
 @Record
-public class Registro011ExtratoEletronicoVendas implements RegistroRedecard {
+public class Registro043AjustesCredito implements RegistroRedecard {
 
     private Integer tipoRegistro;
     private Integer numeroPVcreditado;
     private Integer numeroResumoCredito;
-    private Date dataAjuste;
-    private Double valorAjuste;
+    private Long nummeroDocumento;
+    private Date dataEmissao;
     private Date dataCredito;
     private Double valorCredito;
-    private String cCredito;
+    private String Ccredito;
     private Integer banco;
     private Integer agencia;
-    private Long contaCorrente;
-    private Integer motivoAjuste;
-    private String descricaoAjuste;
+    private String contaCorrente;
+    private Integer motivoCredito;
+    private String motivoCreditoText;
     private String bandeira;
 
     @Field(offset = 1, length = 3)
@@ -79,27 +79,25 @@ public class Registro011ExtratoEletronicoVendas implements RegistroRedecard {
         this.numeroResumoCredito = numeroResumoCredito;
     }
 
-    @Field(offset = 22, length = 8)
-    @FixedFormatPattern("ddMMyyyy")
-    public Date getDataAjuste() {
-        return dataAjuste;
+    @Field(offset = 22, length = 11)
+    public Long getNummeroDocumento() {
+        return nummeroDocumento;
     }
 
-    public void setDataAjuste(Date dataAjuste) {
-        this.dataAjuste = dataAjuste;
+    public void setNummeroDocumento(Long nummeroDocumento) {
+        this.nummeroDocumento = nummeroDocumento;
     }
 
-    @Field(offset = 30, length = 15)
-    public Double getValorAjuste() {
-        return valorAjuste;
+    @Field(offset = 33, length = 8)
+    public Date getDataEmissao() {
+        return dataEmissao;
     }
 
-    public void setValorAjuste(Double valorAjuste) {
-        this.valorAjuste = valorAjuste;
+    public void setDataEmissao(Date dataEmissao) {
+        this.dataEmissao = dataEmissao;
     }
 
-    @Field(offset = 45, length = 8)
-    @FixedFormatPattern("ddMMyyyy")
+    @Field(offset = 41, length = 8)
     public Date getDataCredito() {
         return dataCredito;
     }
@@ -108,7 +106,7 @@ public class Registro011ExtratoEletronicoVendas implements RegistroRedecard {
         this.dataCredito = dataCredito;
     }
 
-    @Field(offset = 53, length = 15)
+    @Field(offset = 49, length = 15)
     public Double getValorCredito() {
         return valorCredito;
     }
@@ -117,16 +115,16 @@ public class Registro011ExtratoEletronicoVendas implements RegistroRedecard {
         this.valorCredito = valorCredito;
     }
 
-    @Field(offset = 68, length = 1)
-    public String getcCredito() {
-        return cCredito;
+    @Field(offset = 64, length = 1)
+    public String getCcredito() {
+        return Ccredito;
     }
 
-    public void setcCredito(String cCredito) {
-        this.cCredito = cCredito;
+    public void setCcredito(String Ccredito) {
+        this.Ccredito = Ccredito;
     }
 
-    @Field(offset = 69, length = 3)
+    @Field(offset = 65, length = 3)
     public Integer getBanco() {
         return banco;
     }
@@ -135,7 +133,7 @@ public class Registro011ExtratoEletronicoVendas implements RegistroRedecard {
         this.banco = banco;
     }
 
-    @Field(offset = 72, length = 6)
+    @Field(offset = 68, length = 6)
     public Integer getAgencia() {
         return agencia;
     }
@@ -144,34 +142,34 @@ public class Registro011ExtratoEletronicoVendas implements RegistroRedecard {
         this.agencia = agencia;
     }
 
-    @Field(offset = 78, length = 11)
-    public Long getContaCorrente() {
+    @Field(offset = 74, length = 11)
+    public String getContaCorrente() {
         return contaCorrente;
     }
 
-    public void setContaCorrente(Long contaCorrente) {
+    public void setContaCorrente(String contaCorrente) {
         this.contaCorrente = contaCorrente;
     }
 
-    @Field(offset = 89, length = 2)
-    public Integer getMotivoAjuste() {
-        return motivoAjuste;
+    @Field(offset = 85, length = 2)
+    public Integer getMotivoCredito() {
+        return motivoCredito;
     }
 
-    public void setMotivoAjuste(Integer motivoAjuste) {
-        this.motivoAjuste = motivoAjuste;
+    public void setMotivoCredito(Integer motivoCredito) {
+        this.motivoCredito = motivoCredito;
     }
 
-    @Field(offset = 91, length = 28)
-    public String getDescricaoAjuste() {
-        return descricaoAjuste;
+    @Field(offset = 87, length = 28)
+    public String getMotivoCreditoText() {
+        return motivoCreditoText;
     }
 
-    public void setDescricaoAjuste(String descricaoAjuste) {
-        this.descricaoAjuste = descricaoAjuste;
+    public void setMotivoCreditoText(String motivoCreditoText) {
+        this.motivoCreditoText = motivoCreditoText;
     }
 
-    @Field(offset = 119, length = 1)
+    @Field(offset = 115, length = 15)
     public String getBandeira() {
         return bandeira;
     }
@@ -180,8 +178,4 @@ public class Registro011ExtratoEletronicoVendas implements RegistroRedecard {
         this.bandeira = bandeira;
     }
 
-    @Override
-    public String toString() {
-        return "Registro011ExtratoEletronicoVendas{" + "tipoRegistro=" + tipoRegistro + ", numeroPVcreditado=" + numeroPVcreditado + ", numeroResumoCredito=" + numeroResumoCredito + ", dataAjuste=" + dataAjuste + ", valorAjuste=" + valorAjuste + ", dataCredito=" + dataCredito + ", valorCredito=" + valorCredito + ", cCredito=" + cCredito + ", banco=" + banco + ", agencia=" + agencia + ", contaCorrente=" + contaCorrente + ", motivoAjuste=" + motivoAjuste + ", descricaoAjuste=" + descricaoAjuste + ", bandeira=" + bandeira + '}';
-    }
 }

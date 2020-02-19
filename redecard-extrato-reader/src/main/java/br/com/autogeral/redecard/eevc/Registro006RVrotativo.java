@@ -108,7 +108,7 @@ public class Registro006RVrotativo implements RegistroRedecard {
     }
 
     @Field(offset = 41, length = 8)
-    @FixedFormatPattern("yyyyMMdd")
+    @FixedFormatPattern("ddMMyyyy")
     public Date getDataRV() {
         return dataRV;
     }
@@ -172,7 +172,7 @@ public class Registro006RVrotativo implements RegistroRedecard {
     }
 
     @Field(offset = 129, length = 8)
-    @FixedFormatPattern("yyyyMMdd")
+    @FixedFormatPattern("ddMMyyyy")
     public Date getDataCredito() {
         return dataCredito;
     }

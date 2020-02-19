@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2020 Kaique.
+ * Copyright 2020 kaique.mota.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,27 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package br.com.autogeral.redecard.eefi;
 
-import br.com.autogeral.redecar.eefi.Registro034Creditos;
-import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
-import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import org.junit.Test;
-
 /**
- *
- * @author Kaique
+ * 19/02/2020 17:39:30
+ * @author kaique.mota
  */
-public class Registro034Creditostest {
-
-    private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
-
-    @Test
-    public void testParse() {
-
-        String expResult = "0340147974700900268984703062019000000000010058C3410002780000017738130052019032849995020120191200000000025105600000000000502105/0607014797470";
-        Registro034Creditos credito = fixedFormatManager.load(Registro034Creditos.class, expResult);
-        System.out.println(credito.toString());
-    }
+public class Registro032HeaderMatriztest {
+    
 
 }

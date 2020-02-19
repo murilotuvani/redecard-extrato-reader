@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2020 Kaique.
+ * Copyright 2020 kaique.mota.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,25 +23,27 @@
  */
 package br.com.autogeral.redecard.eefi;
 
-import br.com.autogeral.redecar.eefi.Registro034Creditos;
+import br.com.autogeral.redecar.eefi.Registro035AjustesNetDesagendamentos;
+import br.com.autogeral.redecar.eefi.Registro043AjustesCredito;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
 import org.junit.Test;
 
 /**
+ * 19/02/2020 09:36:40
  *
- * @author Kaique
+ * @author kaique.mota
  */
-public class Registro034Creditostest {
+public class Registro043AjustesCreditotest {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
     @Test
     public void testParse() {
 
-        String expResult = "0340147974700900268984703062019000000000010058C3410002780000017738130052019032849995020120191200000000025105600000000000502105/0607014797470";
-        Registro034Creditos credito = fixedFormatManager.load(Registro034Creditos.class, expResult);
-        System.out.println(credito.toString());
+        String expResult = "043999999999999999999041409444512005201422052014000000000002500C9991111118888888888861DEV CRED PGTO MAIOR         1";
+        Registro043AjustesCredito ajustescredito = fixedFormatManager.load(Registro043AjustesCredito.class, expResult);
+
     }
 
 }

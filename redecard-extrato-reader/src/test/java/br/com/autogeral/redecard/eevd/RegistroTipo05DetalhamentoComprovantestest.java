@@ -62,7 +62,7 @@ public class RegistroTipo05DetalhamentoComprovantestest {
 
     @Test
     public void testParse() {
-        String expResult = "05,039188892,154140306,03062019,000000000010510,000000000000110,000000000010400,603689*********7267,V,000249073694,04062019,01,102751,WW296838,2 ,00000,000000000010510,000000000000000,1";
+        String expResult = "05,014797470,151049391,31052019,000000000002120,000000000000022,000000000002098,542974******8201   ,V,000002661134,03062019,01,090353,WW249331,2 ,00000,000000000002120,000000000000000,1";
         expResult = expResult.replace(",", "");
         RegistroTipo05DetalhamentoComprovantes detalhamentoComprovante = manager.load(RegistroTipo05DetalhamentoComprovantes.class, expResult);
         System.out.println(detalhamentoComprovante.toString());

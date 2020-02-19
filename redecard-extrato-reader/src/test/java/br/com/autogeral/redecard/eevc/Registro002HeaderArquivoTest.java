@@ -27,6 +27,7 @@ import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import junit.framework.TestCase;
 import org.junit.Test;
 
@@ -37,25 +38,16 @@ import org.junit.Test;
 public class Registro002HeaderArquivoTest extends TestCase {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
-
-//    @Test
-//    public void testExport() {
-//        String expResult = "20229122011REDECARDEXTRATO DE MOVIMENTO DE VENDASGRUPO OTICA OTICA     111106999999999DIARIO         V2.01 - 09/06 - EEVC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ";
-//
-//        Registro002HeaderArquivo registro = new Registro002HeaderArquivo();
-//        // foi colocado como registro 202 pois o Integer corta os zero a esquerda. O real numero de registro é 002.
-//        registro.setTipoRegistro(202);
-//        registro.setDataEmissao(java.sql.Date.valueOf(LocalDate.parse("29122011", DateTimeFormatter.ofPattern("ddMMyyyy"))));
-//        registro.setAdquirente("REDECARD");
-//        registro.setExtratoEletronicoVendas("EXTRATO DE MOVIMENTO DE VENDAS");
-//        registro.setNomeComercial("GRUPO OTICA OTICA     ");
-//        registro.setSequenciaMovimento(111106);
-//        registro.setnPVgrupoMatriz(999999999);
-//        registro.setTipoMovimento("DIARIO         ");
-//        registro.setVersaoArquivo("V2.01 - 09/06 - EEVC");
-//        String atual = fixedFormatManager.export(registro);
-//        assertEquals(expResult, atual);
-//    }
+    Integer tipoRegistro = 2;
+    Date dataEmissao = java.sql.Date.valueOf(LocalDate.parse("01062019", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    String adquirente = "REDECARD";
+    String extratoEletronicoVendas = "EXTRATO DE MOVIMENTO DE VENDAS";
+    String nomeComercial = "AUTO GERAL";
+    Integer sequenciaMovimento = 78;
+    Integer nPVgrupoMatriz = 14797470;
+    String tipoMovimento = "DIARIO";
+    String versaoArquivo = "V2.01 - 09/06 - EEVC";
+    String livre;
 
     @Test
     public void testParse() {
@@ -67,8 +59,16 @@ public class Registro002HeaderArquivoTest extends TestCase {
 
     @Test
     public void testGet() {
-        String expResult = "00229122011REDECARDEXTRATO DE MOVIMENTO DE VENDASGRUPO OTICA OTICA     000106999999999DIARIO         V2.01 - 09/06 - EEVC";
+        String expResult = "00201062019REDECARDEXTRATO DE MOVIMENTO DE VENDASAUTO GERAL            000078014797470DIARIO         V2.01 - 09/06 - EEVC";
         Registro002HeaderArquivo recordHeader = fixedFormatManager.load(Registro002HeaderArquivo.class, expResult);
-        System.out.println(recordHeader.toString());
+        assertEquals(recordHeader.getTipoRegistro(), tipoRegistro);
+        assertEquals(recordHeader.getDataEmissao(), dataEmissao);
+        assertEquals(recordHeader.getAdquirente(), adquirente);
+        assertEquals(recordHeader.getExtratoEletronicoVendas(), extratoEletronicoVendas);
+        assertEquals(recordHeader.getNomeComercial(), nomeComercial);
+        assertEquals(recordHeader.getSequenciaMovimento(), sequenciaMovimento);
+        assertEquals(recordHeader.getnPVgrupoMatriz(), nPVgrupoMatriz);
+        assertEquals(recordHeader.getTipoMovimento(), tipoMovimento);
+        assertEquals(recordHeader.getVersaoArquivo(), versaoArquivo);
     }
 }

@@ -25,6 +25,7 @@ package br.com.autogeral.redecard.eevc;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import static junit.framework.TestCase.assertEquals;
 import org.junit.Test;
 
 /**
@@ -35,6 +36,20 @@ import org.junit.Test;
 public class Registro026TotalizadorMatriztest {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+    Integer tipoRegistro = 26;
+    String nPVmatriz = "014797470";
+    Double valorBruto = 25999.2;
+    Integer quantidadeCVnsuRejeitados = 0;
+    Double valorTotalRejeitado = 0.0;
+    Double valorTotalRotativo = 4945.93;
+    Double valorTotalParceladosemJuros = 21053.27;
+    Double valorTotalParceladoIATA = 0.0;
+    Double valorTotalDolar = 0.0;
+    Double valorTotalDesconto = 1131.82;
+    Double valorTotalLiquido = 24867.38;
+    Double valorTotalGorjeta = 0.0;
+    Double valorTotalTaxaEmbarque = 0.0;
+    Integer quantidadeCVnsuAcatados = 81;
 
     @Test
     public void testParse() {
@@ -43,4 +58,27 @@ public class Registro026TotalizadorMatriztest {
         Registro026TotalizadorMatriz recordTotalizador = fixedFormatManager.load(Registro026TotalizadorMatriz.class, expResult);
         System.out.println(recordTotalizador.toString());
     }
+
+    @Test
+    public void testEquals() {
+
+        String expResult = "026014797470000000002599920000000000000000000000000000000494593000000002105327000000000000000000000000000000000000000113182000000002486738000000000000000000000000000000000081";
+        Registro026TotalizadorMatriz recordTotalizador = fixedFormatManager.load(Registro026TotalizadorMatriz.class, expResult);
+
+        assertEquals(recordTotalizador.getTipoRegistro(), tipoRegistro);
+        assertEquals(recordTotalizador.getnPVmatriz(), nPVmatriz);
+        assertEquals(recordTotalizador.getValorBruto(), valorBruto);
+        assertEquals(recordTotalizador.getQuantidadeCVnsuRejeitados(), quantidadeCVnsuRejeitados);
+        assertEquals(recordTotalizador.getValorTotalRejeitado(), valorTotalRejeitado);
+        assertEquals(recordTotalizador.getValorTotalRotativo(), valorTotalRotativo);
+        assertEquals(recordTotalizador.getValorTotalParceladosemJuros(), valorTotalParceladosemJuros);
+        assertEquals(recordTotalizador.getValorTotalParceladoIATA(), valorTotalParceladoIATA);
+        assertEquals(recordTotalizador.getValorTotalDolar(), valorTotalDolar);
+        assertEquals(recordTotalizador.getValorTotalDesconto(), valorTotalDesconto);
+        assertEquals(recordTotalizador.getValorTotalLiquido(), valorTotalLiquido);
+        assertEquals(recordTotalizador.getValorTotalGorjeta(), valorTotalGorjeta);
+        assertEquals(recordTotalizador.getValorTotalTaxaEmbarque(), valorTotalTaxaEmbarque);
+        assertEquals(recordTotalizador.getQuantidadeCVnsuAcatados(), quantidadeCVnsuAcatados);
+    }
+
 }

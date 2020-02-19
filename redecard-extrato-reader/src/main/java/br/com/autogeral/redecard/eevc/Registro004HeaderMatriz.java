@@ -66,4 +66,10 @@ public class Registro004HeaderMatriz implements RegistroRedecard {
         this.nomeComercialMatriz = nomeComercialMatriz;
     }
 
+    @Override
+    public String toString() {
+        return "Registro004HeaderMatriz{" + "tipoRegistro=" + tipoRegistro + ", nPVMatriz=" + nPVMatriz + ", nomeComercialMatriz=" + nomeComercialMatriz + '}';
+    }
+
+    
 }

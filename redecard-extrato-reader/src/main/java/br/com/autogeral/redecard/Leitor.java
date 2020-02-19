@@ -29,6 +29,9 @@ import br.com.autogeral.redecar.eefi.Registro034Creditos;
 import br.com.autogeral.redecar.eefi.Registro035AjustesNetDesagendamentos;
 import br.com.autogeral.redecar.eefi.Registro037TotalizadorCreditos;
 import br.com.autogeral.redecar.eefi.Registro040Serasa;
+import br.com.autogeral.redecar.eefi.Registro043AjustesCredito;
+import br.com.autogeral.redecar.eefi.Registro044DebitosPendentes;
+import br.com.autogeral.redecar.eefi.Registro045DebitosLiquidados;
 import br.com.autogeral.redecar.eefi.Registro049DesagendamentodeParcelas;
 import br.com.autogeral.redecar.eefi.Registro050TotalizadorMatriz;
 import br.com.autogeral.redecar.eefi.Registro052TrailerArquivo;
@@ -38,9 +41,12 @@ import br.com.autogeral.redecar.eesa.Registro068TrailerArquivo;
 import br.com.autogeral.redecar.eesa.RegistroTipo060CabecalhoArquivo;
 import br.com.autogeral.redecar.eesa.RegistroTipo061CabecalhoArquivo;
 import br.com.autogeral.redecard.eevc.Registro002HeaderArquivo;
+import br.com.autogeral.redecard.eevc.Registro004HeaderMatriz;
+import br.com.autogeral.redecard.eevc.Registro005Request;
 import br.com.autogeral.redecard.eevc.Registro006RVrotativo;
 import br.com.autogeral.redecard.eevc.Registro008CVnsuRotativo;
 import br.com.autogeral.redecard.eevc.Registro010RVparceladosemJuros;
+import br.com.autogeral.redecard.eevc.Registro011ExtratoEletronicoVendas;
 import br.com.autogeral.redecard.eevc.Registro014ParcelosemJuros;
 import br.com.autogeral.redecard.eevc.Registro026TotalizadorMatriz;
 import br.com.autogeral.redecard.eevc.Registro028TrailerArquivo;
@@ -74,10 +80,12 @@ public class Leitor {
 
     private static final FixedFormatManager FFM = new FixedFormatManagerImpl();
     private List<RegistroRedecard> registros = new ArrayList<>();
+    private List<String> registrosNaoLidos = new ArrayList<>();
 
     public static void main(String args[]) {
         File diretorio = new File("C:\\Users\\kaique.mota\\Documents\\Tivit_05022020_211715");
         defineLeituraArquivo(diretorio);
+
     }
 
     private static void defineLeituraArquivo(File diretorio) {
@@ -87,7 +95,8 @@ public class Leitor {
         for (File i : arquivos) {
             if (i.getName().toLowerCase().contains("eevc")
                     || i.getName().toLowerCase().contains("eefi")
-                    || i.getName().toLowerCase().contains("eevd")) {
+                    || i.getName().toLowerCase().contains("eevd")
+                    || i.getName().toLowerCase().contains("eesa")) {
                 l.lerArquivo(i);
             }
         }
@@ -117,22 +126,32 @@ public class Leitor {
         System.out.println("Linha :" + l);
         String tipoRegistro = l.substring(0, 3);
         switch (tipoRegistro) {
-            case "00": {
+            case "00,": {
+                l = l.replace(",", "");
                 Registro00CabecalhoArquivo cabecalho = FFM.load(Registro00CabecalhoArquivo.class, l);
                 System.out.println(cabecalho.toString());
                 registros.add(cabecalho);
             }
             break;
-            case "01": {
+            case "01,": {
+                l = l.replace(",", "");
                 RegistroTipo01ResumoVendas resumoVendas = FFM.load(RegistroTipo01ResumoVendas.class, l);
                 System.out.println(resumoVendas.toString());
                 registros.add(resumoVendas);
             }
             break;
-            case "02": {
+            case "02,": {
+                l = l.replace(",", "");
                 RegistroTipo02TotalpontoVenda totalPontoVenda = FFM.load(RegistroTipo02TotalpontoVenda.class, l);
                 System.out.println(totalPontoVenda.toString());
                 registros.add(totalPontoVenda);
+            }
+            break;
+            case "03,": {
+                l = l.replace(",", "");
+                RegistroTipo03TotalMatriz totalMatriz = FFM.load(RegistroTipo03TotalMatriz.class, l);
+                System.out.println(totalMatriz.toString());
+                registros.add(totalMatriz);
             }
             break;
             case "002": {
@@ -141,13 +160,27 @@ public class Leitor {
                 registros.add(recordHeader);
             }
             break;
-            case "04": {
+            case "04,": {
+                l = l.replace(",", "");
                 RegistroTipo04TotalArquivo totalArquivo = FFM.load(RegistroTipo04TotalArquivo.class, l);
                 System.out.println(totalArquivo.toString());
                 registros.add(totalArquivo);
             }
             break;
-            case "05": {
+            case "004": {
+                Registro004HeaderMatriz headerMatriz = FFM.load(Registro004HeaderMatriz.class, l);
+                System.out.println(headerMatriz.toString());
+                registros.add(headerMatriz);
+            }
+            break;
+            case "005": {
+                Registro005Request request = FFM.load(Registro005Request.class, l);
+                System.out.println(request.toString());
+                registros.add(request);
+            }
+            break;
+            case "05,": {
+                l = l.replace(",", "");
                 RegistroTipo05DetalhamentoComprovantes detalhamento = FFM.load(RegistroTipo05DetalhamentoComprovantes.class, l);
                 System.out.println(detalhamento.toString());
                 registros.add(detalhamento);
@@ -176,10 +209,18 @@ public class Leitor {
 
             }
             break;
-            case "11": {
-                RegistroTipo11AjustesNet ajusteNet = FFM.load(RegistroTipo11AjustesNet.class, l);
-                System.out.println(ajusteNet.toString());
-                registros.add(ajusteNet);
+            case "011": {
+                String tipoRegistros = tipoRegistro = l.substring(0, 4);
+                if (l.toLowerCase().contains("011,")) {
+                    l = l.replace(",", "");
+                    RegistroTipo11AjustesNet ajusteNet = FFM.load(RegistroTipo11AjustesNet.class, l);
+                    System.out.println(ajusteNet.toString());
+                    registros.add(ajusteNet);
+                } else {
+                    Registro011ExtratoEletronicoVendas extratoEletronico = FFM.load(Registro011ExtratoEletronicoVendas.class, l);
+                    System.out.println(extratoEletronico.toString());
+                    registros.add(extratoEletronico);
+                }
             }
             break;
 
@@ -255,6 +296,27 @@ public class Leitor {
 
             }
             break;
+            case "043": {
+                Registro043AjustesCredito ajustesCredito = FFM.load(Registro043AjustesCredito.class, l);
+                registros.add(ajustesCredito);
+                System.out.println(ajustesCredito.toString());
+
+            }
+            break;
+            case "044": {
+                Registro044DebitosPendentes debitosPendentes = FFM.load(Registro044DebitosPendentes.class, l);
+                registros.add(debitosPendentes);
+                System.out.println(debitosPendentes.toString());
+
+            }
+
+            case "045": {
+                Registro045DebitosLiquidados debitosPendentes = FFM.load(Registro045DebitosLiquidados.class, l);
+                registros.add(debitosPendentes);
+                System.out.println(debitosPendentes.toString());
+
+            }
+            break;
             case "049": {
                 Registro049DesagendamentodeParcelas cvNSURecarga = FFM.load(Registro049DesagendamentodeParcelas.class, l);
                 registros.add(cvNSURecarga);
@@ -305,7 +367,8 @@ public class Leitor {
             }
             break;
 
+            default:
+                registrosNaoLidos.add(l);
         }
     }
-
 }

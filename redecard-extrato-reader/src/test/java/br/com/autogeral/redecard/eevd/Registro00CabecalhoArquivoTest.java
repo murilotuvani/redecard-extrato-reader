@@ -55,7 +55,7 @@ public class Registro00CabecalhoArquivoTest {
 
     @Test
     public void testParse() {
-        String expResult = "00,014797470,04062019,03062019,Movimentacao diaria - Cartoes de Debito,Redecard,AUTO GERAL                ,000081,DIARIO         ,V1.04 - 07/10 - EEVD";
+        String expResult = "00,014797470,01062019,31052019,Movimentacao diaria - Cartoes de Debito,Redecard,AUTO GERAL                ,000078,DIARIO         ,V1.04 - 07/10 - EEVD";
         expResult = expResult.replace(",", "");
         Registro00CabecalhoArquivo recordHeader = manager.load(Registro00CabecalhoArquivo.class, expResult);
         System.out.println(recordHeader.toString());

@@ -25,6 +25,8 @@ package br.com.autogeral.redecard.eevc;
 
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -38,6 +40,30 @@ public class Registro008CVnsuRotativoTest extends TestCase {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
+    Integer tipoRegistro = 8;
+    Integer numeroPV = 14797470;
+    Integer numeroRV = 64131102;
+    Date dataCVnsu = java.sql.Date.valueOf(LocalDate.parse("31012020", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Integer zeros = 0;
+    Double valorCVnsu = 20.98;
+    Double valorGorgeta = 0.0;
+    String numeroCartao = "544891XXXXXX0003";
+    String statusCVnsu = "000";
+    Integer numeroCVnsu = 246671956;
+    String numeroReferencia;
+    Double valorDesconto = 0.33;
+    String numAutorizacao = "066848";
+    Integer horaTransacao = 171224;
+    String numBilhete;
+    String numBilhete2;
+    String numBilhete3;
+    String numBilhete4;
+    String tipoCaptura = "2";
+    Double valorLiquido = 20.65;
+    String numeroTerminal = "WW876746";
+    String siglaPais = "BR";
+    String bandeira = "1";
+
     @Test
     public void testParse() {
 
@@ -46,16 +72,30 @@ public class Registro008CVnsuRotativoTest extends TestCase {
         System.out.println(recordRequest.toString());
     }
 
-//    @Test
-//    public void testSerialize() {
-//        String expResult = "0080999999990991317012812201100000000000000000007000000000000000000498453******8149000000248983599             000000000000280005568175118                                                                9000000000006720ID011501";
-//        Registro008CVnsuRotativo registro = new Registro008CVnsuRotativo();
-//        registro.setTipoRegistro(Integer.SIZE);
-//        registro.setNumeroPV(Integer.SIZE);
-//        registro.setNumeroRV(Integer.SIZE);
-//        registro.setDataCVnsu(new Date("1112331"));
-//        String atual = fixedFormatManager.export(registro);
-//        assertEquals(expResult, atual);
-//    }
+    @Test
+    public void testEquals() {
+        String expResult = "0080147974700641311023101202000000000000000000002098000000000000000544891XXXXXX0003000000246671956             000000000000033066848171224                                                                2000000000002065WW876746BR 1";
+        Registro008CVnsuRotativo recordRequest = fixedFormatManager.load(Registro008CVnsuRotativo.class, expResult);
+        
+        assertEquals(recordRequest.getTipoRegistro(), tipoRegistro);
+        assertEquals(recordRequest.getNumeroPV(), numeroPV);
+        assertEquals(recordRequest.getNumeroRV(), numeroRV);
+        assertEquals(recordRequest.getDataCVnsu(), dataCVnsu);
+        assertEquals(recordRequest.getZeros(), zeros);
+        assertEquals(recordRequest.getValorCVnsu(), valorCVnsu);
+        assertEquals(recordRequest.getValorGorgeta(), valorGorgeta);
+        assertEquals(recordRequest.getNumeroCartao(), numeroCartao);
+        assertEquals(recordRequest.getStatusCVnsu(), statusCVnsu);
+        assertEquals(recordRequest.getValorDesconto(), valorDesconto);
+        assertEquals(recordRequest.getNumeroCVnsu(), numeroCVnsu);
+        assertEquals(recordRequest.getValorDesconto(), valorDesconto);
+        assertEquals(recordRequest.getNumAutorizacao(), numAutorizacao);
+        assertEquals(recordRequest.getHoraTransacao(), horaTransacao);
+        assertEquals(recordRequest.getTipoCaptura(), tipoCaptura);
+        assertEquals(recordRequest.getValorLiquido(), valorLiquido);
+        assertEquals(recordRequest.getNumeroTerminal(), numeroTerminal);
+        assertEquals(recordRequest.getSiglaPais(), siglaPais);
+        assertEquals(recordRequest.getBandeira(), bandeira);
+    }
 
 }

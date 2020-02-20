@@ -39,7 +39,7 @@ import java.util.Date;
 public class Registro035AjustesNetDesagendamentos implements RegistroRedecard {
 
     private Integer tipoRegistro;
-    private Integer numeroPVajustado;
+    private Long numeroPVajustado;
     private Integer numeroRVajustado;
     private Date dataAjuste;
     private Double valorAjuste;
@@ -61,7 +61,7 @@ public class Registro035AjustesNetDesagendamentos implements RegistroRedecard {
     private Double valorOriginalParcela;
     private Double valorBrutoresumoVendas;
     private Double valorCancelamentoSolicitado;
-    private Integer numeroNSU;
+    private Long numeroNSU;
     private String numeroAutorizacao;
     private String tipoDebito;
     private Long numeroOrdemDebito;
@@ -80,11 +80,11 @@ public class Registro035AjustesNetDesagendamentos implements RegistroRedecard {
     }
 
     @Field(offset = 4, length = 9)
-    public Integer getNumeroPVajustado() {
+    public Long getNumeroPVajustado() {
         return numeroPVajustado;
     }
 
-    public void setNumeroPVajustado(Integer numeroPVajustado) {
+    public void setNumeroPVajustado(Long numeroPVajustado) {
         this.numeroPVajustado = numeroPVajustado;
     }
 
@@ -282,11 +282,11 @@ public class Registro035AjustesNetDesagendamentos implements RegistroRedecard {
     }
 
     @Field(offset = 239, length = 12)
-    public Integer getNumeroNSU() {
+    public Long getNumeroNSU() {
         return numeroNSU;
     }
 
-    public void setNumeroNSU(Integer numeroNSU) {
+    public void setNumeroNSU(Long numeroNSU) {
         this.numeroNSU = numeroNSU;
     }
 

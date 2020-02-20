@@ -335,35 +335,6 @@ public class Leitor {
                 Registro052TrailerArquivo trailerMatriz = FFM.load(Registro052TrailerArquivo.class, l);
                 System.out.println(trailerMatriz.toString());
                 registros.add(trailerMatriz);
-
-            }
-            break;
-            case "062": {
-                Registro062CabecalhoArquivo cabecalhoArquivo = FFM.load(Registro062CabecalhoArquivo.class, l);
-                registros.add(cabecalhoArquivo);
-            }
-            break;
-
-            case "066": {
-                Registro066TotalizadorMatriz totalizadorMatriz = FFM.load(Registro066TotalizadorMatriz.class, l);
-                registros.add(totalizadorMatriz);
-            }
-            break;
-            case "068": {
-                Registro068TrailerArquivo registro068TrailerArquivo = FFM.load(Registro068TrailerArquivo.class, l);
-                registros.add(registro068TrailerArquivo);
-            }
-            break;
-
-            case "060": {
-                RegistroTipo060CabecalhoArquivo registro060Cabecalho = FFM.load(RegistroTipo060CabecalhoArquivo.class, l);
-                registros.add(registro060Cabecalho);
-            }
-            break;
-            case "061": {
-                RegistroTipo061CabecalhoArquivo registro061Cabecalho = FFM.load(RegistroTipo061CabecalhoArquivo.class, l);
-                registros.add(registro061Cabecalho);
-
             }
             break;
 

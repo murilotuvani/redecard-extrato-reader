@@ -37,7 +37,7 @@ import java.util.Date;
 public class Registro049DesagendamentodeParcelas implements RegistroRedecard {
 
     private Integer tipoRegistro;
-    private Long numerpoPVoriginal;
+    private Long numeroPVoriginal;
     private Long numeroRVoriginal;
     private String numeroReferencia;
     private Date dataCredito;
@@ -65,11 +65,11 @@ public class Registro049DesagendamentodeParcelas implements RegistroRedecard {
 
     @Field(offset = 4, length = 9)
     public Long getNumerpoPVoriginal() {
-        return numerpoPVoriginal;
+        return numeroPVoriginal;
     }
 
     public void setNumerpoPVoriginal(Long numerpoPVoriginal) {
-        this.numerpoPVoriginal = numerpoPVoriginal;
+        this.numeroPVoriginal = numerpoPVoriginal;
     }
 
     @Field(offset = 13, length = 9)
@@ -208,6 +208,11 @@ public class Registro049DesagendamentodeParcelas implements RegistroRedecard {
 
     public void setBandeiraRVorigem(String bandeiraRVorigem) {
         this.bandeiraRVorigem = bandeiraRVorigem;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro049DesagendamentodeParcelas{" + "tipoRegistro=" + tipoRegistro + ", numerpoPVoriginal=" + numeroPVoriginal + ", numeroRVoriginal=" + numeroRVoriginal + ", numeroReferencia=" + numeroReferencia + ", dataCredito=" + dataCredito + ", novoValorParcela=" + novoValorParcela + ", valorOriginalParcelaAlterada=" + valorOriginalParcelaAlterada + ", valorAjuste=" + valorAjuste + ", dataCancelamento=" + dataCancelamento + ", valorRVoriginal=" + valorRVoriginal + ", valorCancelamentoSolicitado=" + valorCancelamentoSolicitado + ", numeroCartao=" + numeroCartao + ", dataTransacao=" + dataTransacao + ", NSU=" + NSU + ", tipoDebito=" + tipoDebito + ", numeroParcela=" + numeroParcela + ", bandeiraRVorigem=" + bandeiraRVorigem + '}';
     }
 
 }

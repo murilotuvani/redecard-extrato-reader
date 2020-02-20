@@ -21,43 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.com.autogeral.redecard.eefi;
+package br.com.autogeral.redecard.eesa;
 
-import br.com.autogeral.redecar.eefi.Registro032HeaderMatriz;
+import br.com.autogeral.redecar.eesa.Registro062CabecalhoArquivo;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
-import static junit.framework.TestCase.assertEquals;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import org.junit.Test;
 
 /**
- * 19/02/2020 17:39:30
+ * 20/02/2020 11:20:43
  *
  * @author kaique.mota
  */
-public class Registro032HeaderMatriztest {
+public class Registro062CabecalhoArquivotest {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
-
-    Integer tipoRegistro = 32;
-    String numeroMatriz = "999999999";
-    String nomeComercial = "OTICA OTICA";
 
     @Test
     public void testParse() {
 
-        String expResult = "032999999999OTICA OTICA           ";
-        Registro032HeaderMatriz header = fixedFormatManager.load(Registro032HeaderMatriz.class, expResult);
-        System.out.println(header.toString());
     }
 
-    @Test
-    public void testEquals() {
-
-        String expResult = "032999999999OTICA OTICA           ";
-        Registro032HeaderMatriz header = fixedFormatManager.load(Registro032HeaderMatriz.class, expResult);
-        assertEquals(header.getTipoRegistro(), tipoRegistro);
-        assertEquals(header.getNumeroMatriz(), numeroMatriz);
-        assertEquals(header.getNomeComercial(), nomeComercial);
-
-    }
 }

@@ -26,6 +26,10 @@ package br.com.autogeral.redecard.eefi;
 import br.com.autogeral.redecar.eefi.Registro034Creditos;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import static junit.framework.TestCase.assertEquals;
 import org.junit.Test;
 
 /**
@@ -35,6 +39,25 @@ import org.junit.Test;
 public class Registro034Creditostest {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+    Integer tipoRegistro = 34;
+    Integer numeroPVcentralizador = 14797470;
+    Long numeroDocumento = 9002689847L;
+    Date dataLancamento = java.sql.Date.valueOf(LocalDate.parse("03062019", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Double valorLancamento = 100.58;
+    String creditoC = "C";
+    Integer banco = 341;
+    Integer agencia = 278;
+    Integer contaCorrente = 177381;
+    Date dataMovimento=java.sql.Date.valueOf(LocalDate.parse("30052019", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Integer numeroRV = 32849995;
+    Date dataRV = java.sql.Date.valueOf(LocalDate.parse("02012019", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    String bandeira = "1";
+    Integer tipoTransacao = 2;
+    Double valorBrutoRV = 2510.56;
+    Double valorTaxaDesconto = 50.21;
+    String numeroParcelaTotal = "05/06";
+    String statusCredito = "07";
+    Integer numeroPVoriginal = 14797470;
 
     @Test
     public void testParse() {
@@ -42,6 +65,31 @@ public class Registro034Creditostest {
         String expResult = "0340147974700900268984703062019000000000010058C3410002780000017738130052019032849995020120191200000000025105600000000000502105/0607014797470";
         Registro034Creditos credito = fixedFormatManager.load(Registro034Creditos.class, expResult);
         System.out.println(credito.toString());
+    }
+
+    @Test
+    public void testEquals() {
+
+        String expResult = "0340147974700900268984703062019000000000010058C3410002780000017738130052019032849995020120191200000000025105600000000000502105/0607014797470";
+        Registro034Creditos credito = fixedFormatManager.load(Registro034Creditos.class, expResult);
+        assertEquals(credito.getTipoRegistro(), tipoRegistro);
+        assertEquals(credito.getNumeroPVcentralizador(), numeroPVcentralizador);
+        assertEquals(credito.getNumeroDocumento(), numeroDocumento);
+        assertEquals(credito.getDataLancamento(), dataLancamento);
+        assertEquals(credito.getValorLancamento(), valorLancamento);
+        assertEquals(credito.getCreditoC(), creditoC);
+        assertEquals(credito.getBanco(), banco);
+        assertEquals(credito.getAgencia(), agencia);
+        assertEquals(credito.getContaCorrente(), contaCorrente);
+        assertEquals(credito.getDataMovimento(), dataMovimento);
+        assertEquals(credito.getNumeroRV(), numeroRV);
+        assertEquals(credito.getBandeira(), bandeira);
+        assertEquals(credito.getTipoTransacao(), tipoTransacao);
+        assertEquals(credito.getValorBrutoRV(), valorBrutoRV);
+        assertEquals(credito.getValorTaxaDesconto(), valorTaxaDesconto);
+        assertEquals(credito.getNumeroParcelaTotal(), numeroParcelaTotal);
+        assertEquals(credito.getStatusCredito(), statusCredito);
+        assertEquals(credito.getNumeroPVoriginal(), numeroPVoriginal);
     }
 
 }

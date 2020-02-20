@@ -23,10 +23,13 @@
  */
 package br.com.autogeral.redecard.eefi;
 
-import br.com.autogeral.redecar.eefi.Registro035AjustesNetDesagendamentos;
 import br.com.autogeral.redecar.eefi.Registro043AjustesCredito;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import static junit.framework.TestCase.assertEquals;
 import org.junit.Test;
 
 /**
@@ -37,13 +40,48 @@ import org.junit.Test;
 public class Registro043AjustesCreditotest {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
+    Integer tipoRegistro = 43;
+    Integer numeroPVcreditado = 999999999;
+    Integer numeroResumoCredito = 999999999;
+    Long nummeroDocumento = 4140944451L;
+    Date dataEmissao = java.sql.Date.valueOf(LocalDate.parse("20052014", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Date dataCredito = java.sql.Date.valueOf(LocalDate.parse("22052014", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Double valorCredito = 25.0;
+    String Ccredito = "C";
+    Integer banco = 999;
+    Integer agencia = 111111;
+    String contaCorrente = "88888888888";
+    Integer motivoCredito = 61;
+    String motivoCreditoText = "DEV CRED PGTO MAIOR";
+    String bandeira = "1";
 
     @Test
     public void testParse() {
 
         String expResult = "043999999999999999999041409444512005201422052014000000000002500C9991111118888888888861DEV CRED PGTO MAIOR         1";
         Registro043AjustesCredito ajustescredito = fixedFormatManager.load(Registro043AjustesCredito.class, expResult);
-
+        System.out.println(ajustescredito.toString());
     }
 
+    @Test
+    public void testEquals() {
+
+        String expResult = "043999999999999999999041409444512005201422052014000000000002500C9991111118888888888861DEV CRED PGTO MAIOR         1";
+        Registro043AjustesCredito ajustescredito = fixedFormatManager.load(Registro043AjustesCredito.class, expResult);
+
+        assertEquals(ajustescredito.getTipoRegistro(), tipoRegistro);
+        assertEquals(ajustescredito.getNumeroPVcreditado(), numeroPVcreditado);
+        assertEquals(ajustescredito.getNumeroResumoCredito(), numeroResumoCredito);
+        assertEquals(ajustescredito.getNummeroDocumento(), nummeroDocumento);
+        assertEquals(ajustescredito.getDataEmissao(), dataEmissao);
+        assertEquals(ajustescredito.getDataCredito(), dataCredito);
+        assertEquals(ajustescredito.getValorCredito(), valorCredito);
+        assertEquals(ajustescredito.getCcredito(), Ccredito);
+        assertEquals(ajustescredito.getBanco(), banco);
+        assertEquals(ajustescredito.getAgencia(), agencia);
+        assertEquals(ajustescredito.getContaCorrente(), contaCorrente);
+        assertEquals(ajustescredito.getMotivoCredito(), motivoCredito);
+        assertEquals(ajustescredito.getMotivoCreditoText(), motivoCreditoText);
+        assertEquals(ajustescredito.getBandeira(), bandeira);
+    }
 }

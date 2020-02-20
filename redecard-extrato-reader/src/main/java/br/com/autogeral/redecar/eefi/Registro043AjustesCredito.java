@@ -25,6 +25,7 @@ package br.com.autogeral.redecar.eefi;
 
 import br.com.autogeral.redecard.RegistroRedecard;
 import com.ancientprogramming.fixedformat4j.annotation.Field;
+import com.ancientprogramming.fixedformat4j.annotation.FixedFormatPattern;
 import com.ancientprogramming.fixedformat4j.annotation.Record;
 import java.util.Date;
 
@@ -89,6 +90,7 @@ public class Registro043AjustesCredito implements RegistroRedecard {
     }
 
     @Field(offset = 33, length = 8)
+    @FixedFormatPattern("ddMMyyyy")
     public Date getDataEmissao() {
         return dataEmissao;
     }
@@ -98,6 +100,7 @@ public class Registro043AjustesCredito implements RegistroRedecard {
     }
 
     @Field(offset = 41, length = 8)
+    @FixedFormatPattern("ddMMyyyy")
     public Date getDataCredito() {
         return dataCredito;
     }
@@ -177,5 +180,12 @@ public class Registro043AjustesCredito implements RegistroRedecard {
     public void setBandeira(String bandeira) {
         this.bandeira = bandeira;
     }
+
+    @Override
+    public String toString() {
+        return "Registro043AjustesCredito{" + "tipoRegistro=" + tipoRegistro + ", numeroPVcreditado=" + numeroPVcreditado + ", numeroResumoCredito=" + numeroResumoCredito + ", nummeroDocumento=" + nummeroDocumento + ", dataEmissao=" + dataEmissao + ", dataCredito=" + dataCredito + ", valorCredito=" + valorCredito + ", Ccredito=" + Ccredito + ", banco=" + banco + ", agencia=" + agencia + ", contaCorrente=" + contaCorrente + ", motivoCredito=" + motivoCredito + ", motivoCreditoText=" + motivoCreditoText + ", bandeira=" + bandeira + '}';
+    }
+    
+    
 
 }

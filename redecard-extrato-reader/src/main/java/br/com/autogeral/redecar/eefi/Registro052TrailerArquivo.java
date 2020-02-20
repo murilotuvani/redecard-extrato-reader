@@ -43,7 +43,7 @@ public class Registro052TrailerArquivo implements RegistroRedecard {
     private Integer quantidadeCreditosAntecipados;
     private Double valorTotalAntecipado;
     private Integer quantidadeAjustesCredito;
-    private Double valorTotalAjustesCredto;
+    private Double valorTotalAjustesCredito;
     private Integer quantidadeAjustesDebito;
     private Double valorTotalAjustesDebito;
 
@@ -130,11 +130,11 @@ public class Registro052TrailerArquivo implements RegistroRedecard {
 
     @Field(offset = 67, length = 15)
     public Double getValorTotalAjustesCredto() {
-        return valorTotalAjustesCredto;
+        return valorTotalAjustesCredito;
     }
 
     public void setValorTotalAjustesCredto(Double valorTotalAjustesCredto) {
-        this.valorTotalAjustesCredto = valorTotalAjustesCredto;
+        this.valorTotalAjustesCredito = valorTotalAjustesCredto;
     }
 
     @Field(offset = 82, length = 4)
@@ -157,7 +157,7 @@ public class Registro052TrailerArquivo implements RegistroRedecard {
 
     @Override
     public String toString() {
-        return "Registro052TrailerArquivo{" + "tipoRegistro=" + tipoRegistro + ", quantidadeMatrizesArquivo=" + quantidadeMatrizesArquivo + ", quantidadeRegistrosArquivo=" + quantidadeRegistrosArquivo + ", numeroPVgrupo=" + numeroPVgrupo + ", quantidadeTotalResumosGrupo=" + quantidadeTotalResumosGrupo + ", valorTotalDosCreditosNormais=" + valorTotalDosCreditosNormais + ", quantidadeCreditosAntecipados=" + quantidadeCreditosAntecipados + ", valorTotalAntecipado=" + valorTotalAntecipado + ", quantidadeAjustesCredito=" + quantidadeAjustesCredito + ", valorTotalAjustesCredto=" + valorTotalAjustesCredto + ", quantidadeAjustesDebito=" + quantidadeAjustesDebito + ", valorTotalAjustesDebito=" + valorTotalAjustesDebito + '}';
+        return "Registro052TrailerArquivo{" + "tipoRegistro=" + tipoRegistro + ", quantidadeMatrizesArquivo=" + quantidadeMatrizesArquivo + ", quantidadeRegistrosArquivo=" + quantidadeRegistrosArquivo + ", numeroPVgrupo=" + numeroPVgrupo + ", quantidadeTotalResumosGrupo=" + quantidadeTotalResumosGrupo + ", valorTotalDosCreditosNormais=" + valorTotalDosCreditosNormais + ", quantidadeCreditosAntecipados=" + quantidadeCreditosAntecipados + ", valorTotalAntecipado=" + valorTotalAntecipado + ", quantidadeAjustesCredito=" + quantidadeAjustesCredito + ", valorTotalAjustesCredto=" + valorTotalAjustesCredito + ", quantidadeAjustesDebito=" + quantidadeAjustesDebito + ", valorTotalAjustesDebito=" + valorTotalAjustesDebito + '}';
     }
 
 }

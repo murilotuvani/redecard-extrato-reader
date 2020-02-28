@@ -35,11 +35,6 @@ import br.com.autogeral.redecar.eefi.Registro045DebitosLiquidados;
 import br.com.autogeral.redecar.eefi.Registro049DesagendamentodeParcelas;
 import br.com.autogeral.redecar.eefi.Registro050TotalizadorMatriz;
 import br.com.autogeral.redecar.eefi.Registro052TrailerArquivo;
-import br.com.autogeral.redecar.eesa.Registro062CabecalhoArquivo;
-import br.com.autogeral.redecar.eesa.Registro066TotalizadorMatriz;
-import br.com.autogeral.redecar.eesa.Registro068TrailerArquivo;
-import br.com.autogeral.redecar.eesa.RegistroTipo060CabecalhoArquivo;
-import br.com.autogeral.redecar.eesa.RegistroTipo061CabecalhoArquivo;
 import br.com.autogeral.redecard.eevc.Registro002HeaderArquivo;
 import br.com.autogeral.redecard.eevc.Registro004HeaderMatriz;
 import br.com.autogeral.redecard.eevc.Registro005Request;
@@ -50,7 +45,6 @@ import br.com.autogeral.redecard.eevc.Registro011ExtratoEletronicoVendas;
 import br.com.autogeral.redecard.eevc.Registro014ParcelosemJuros;
 import br.com.autogeral.redecard.eevc.Registro026TotalizadorMatriz;
 import br.com.autogeral.redecard.eevc.Registro028TrailerArquivo;
-import br.com.autogeral.redecard.eevc.Registro040CVnsuRecarga;
 import br.com.autogeral.redecard.eevc.Registro12CVnsuparceladosemJuros;
 import br.com.autogeral.redecard.eevd.Registro00CabecalhoArquivo;
 import br.com.autogeral.redecard.eevd.RegistroTipo01ResumoVendas;
@@ -78,17 +72,12 @@ import java.util.List;
  */
 public class Leitor {
 
-    private static final FixedFormatManager FFM = new FixedFormatManagerImpl();
-    private List<RegistroRedecard> registros = new ArrayList<>();
-    private List<String> registrosNaoLidos = new ArrayList<>();
+    public FixedFormatManager FFM = new FixedFormatManagerImpl();
+    public static List<RegistroRedecard> registros = new ArrayList<RegistroRedecard>();
+    public static List<String> registrosNaoLidos = new ArrayList<>();
+    //	File diretorio = new File("C:\\Users\\kaique.mota\\Documents\\Tivit_05022020_211715");
 
-    public static void main(String args[]) {
-        File diretorio = new File("C:\\Users\\kaique.mota\\Documents\\Tivit_05022020_211715");
-        defineLeituraArquivo(diretorio);
-
-    }
-
-    private static void defineLeituraArquivo(File diretorio) {
+    public List<RegistroRedecard> defineLeituraArquivo(File diretorio) {
         Leitor l = new Leitor();
         File arquivos[];
         arquivos = diretorio.listFiles();
@@ -100,9 +89,10 @@ public class Leitor {
                 l.lerArquivo(i);
             }
         }
+        return registros;
     }
 
-    private void lerArquivo(File file) {
+    public void lerArquivo(File file) {
 
         System.out.println("Lendo : " + file.getAbsolutePath());
         if (file.exists()) {
@@ -122,7 +112,7 @@ public class Leitor {
         }
     }
 
-    private void trataRegistro(String l) {
+    public List<RegistroRedecard> trataRegistro(String l) {
         System.out.println("Linha :" + l);
         String tipoRegistro = l.substring(0, 3);
         switch (tipoRegistro) {
@@ -341,5 +331,6 @@ public class Leitor {
             default:
                 registrosNaoLidos.add(l);
         }
+        return registros;
     }
 }

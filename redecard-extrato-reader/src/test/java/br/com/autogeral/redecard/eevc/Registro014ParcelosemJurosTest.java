@@ -52,8 +52,12 @@ public class Registro014ParcelosemJurosTest {
 
     @Test
     public void testParse() {
-
-        String expResult = "01401479747000994968331052019000000000100000000023092300000000001094500000000021997804062019";
+        /*
+01401524494609894932331052019000000000100000000002365500000000000090000000000002275504062019
+01401524494609894932331052019000000000200000000002365400000000000089800000000002275604062019
+01401524494609894932331052019000000000300000000000408000000000000017800000000000390204062019
+         */
+        String expResult = "01401524494609894932331052019000000000100000000002365500000000000090000000000002275504062019";
         Registro014ParcelosemJuros recordParcelaSemJuros = fixedFormatManager.load(Registro014ParcelosemJuros.class, expResult);
         System.out.println(recordParcelaSemJuros.toString());
     }
@@ -74,6 +78,6 @@ public class Registro014ParcelosemJurosTest {
         assertEquals(recordParcelaSemJuros.getValorDescontoParcela(), valorDescontoParcela);
         assertEquals(recordParcelaSemJuros.getValorParcelaLiquida(), valorParcelaLiquida);
         assertEquals(recordParcelaSemJuros.getDataCredito(), dataCredito);
-        
+
     }
 }

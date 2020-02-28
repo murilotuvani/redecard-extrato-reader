@@ -27,7 +27,6 @@ import br.com.autogeral.redecar.eefi.Registro037TotalizadorCreditos;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
 import java.time.LocalDate;
-import java.time.chrono.IsoEra;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import static junit.framework.TestCase.assertEquals;
@@ -43,19 +42,20 @@ public class Registro037TotalizadorCreditostest {
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
 
     Integer tipoRegistro = 37;
-    Integer numeroPV = 999999999;
-    Date dataCredito = java.sql.Date.valueOf(LocalDate.parse("29122011", DateTimeFormatter.ofPattern("ddMMyyyy")));
-    Double valorTotalCredito = 199.44;
+    Integer numeroPV = 14797470;
+    Date dataCredito = java.sql.Date.valueOf(LocalDate.parse("03022020", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Double valorTotalCredito = 12222.74;
     Integer numeroBanco = 341;
-    Integer numeroAgencia = 361;
-    Integer numeroContaCorrente = 384977;
-    Date dataGeracaoArquivo = java.sql.Date.valueOf(LocalDate.parse("28122011", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Integer numeroAgencia = 278;
+    Integer numeroContaCorrente = 177381;
+    Date dataGeracaoArquivo = java.sql.Date.valueOf(LocalDate.parse("01022020", DateTimeFormatter.ofPattern("ddMMyyyy")));
     Double valorTotalCreditos = 0.0;
+    String dataCreditoAntecipado = "00000000";
 
     @Test
     public void testParse() {
 
-        String expResult = "037014797470       03062019000000001390948 341000278000001773810106201900000000000000000000000";
+        String expResult = "037014797470       03022020000000001222274 341000278000001773810102202000000000000000000000000";
         Registro037TotalizadorCreditos credito = fixedFormatManager.load(Registro037TotalizadorCreditos.class, expResult);
         System.out.println(credito.toString());
     }
@@ -63,7 +63,7 @@ public class Registro037TotalizadorCreditostest {
     @Test
     public void testEquals() {
 
-        String expResult = "037999999999       29122011000000000019944 341000361000003849772812201100000000000000000000000";
+        String expResult = "037014797470       03022020000000001222274 341000278000001773810102202000000000000000000000000";
         Registro037TotalizadorCreditos credito = fixedFormatManager.load(Registro037TotalizadorCreditos.class, expResult);
 
         assertEquals(credito.getTipoRegistro(), tipoRegistro);
@@ -74,7 +74,7 @@ public class Registro037TotalizadorCreditostest {
         assertEquals(credito.getNumeroAgencia(), numeroAgencia);
         assertEquals(credito.getNumeroContaCorrente(), numeroContaCorrente);
         assertEquals(credito.getDataGeracaoArquivo(), dataGeracaoArquivo);
-        //assertEquals(credito.getDataCreditoAntecipado(), dataCreditoAntecipado);
+        assertEquals(credito.getDataCreditoAntecipado(), dataCreditoAntecipado);
         assertEquals(credito.getValorTotalCreditos(), valorTotalCreditos);
     }
 }

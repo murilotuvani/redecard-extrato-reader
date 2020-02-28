@@ -30,7 +30,8 @@ import com.ancientprogramming.fixedformat4j.annotation.Record;
 import java.util.Date;
 
 /**
- * @see https://www.userede.com.br/pt-BR/produtosservicos/Documents/Extrato_Eletronico/0208_EEFI_Rede_0263_ExtratosOnlineFinanciamento(portugues).pdf
+ * @see
+ * https://www.userede.com.br/pt-BR/produtosservicos/Documents/Extrato_Eletronico/0208_EEFI_Rede_0263_ExtratosOnlineFinanciamento(portugues).pdf
  * @author Kaique
  */
 @Record
@@ -46,7 +47,7 @@ public class Registro037TotalizadorCreditos implements RegistroRedecard {
     private Integer numeroAgencia;
     private Integer numeroContaCorrente;
     private Date dataGeracaoArquivo;
-    private Date dataCreditoAntecipado;
+    private String dataCreditoAntecipado;
     private Double valorTotalCreditos;
 
     @Field(offset = 1, length = 3)
@@ -142,11 +143,11 @@ public class Registro037TotalizadorCreditos implements RegistroRedecard {
     }
 
     @Field(offset = 72, length = 8)
-    public Date getDataCreditoAntecipado() {
+    public String getDataCreditoAntecipado() {
         return dataCreditoAntecipado;
     }
 
-    public void setDataCreditoAntecipado(Date dataCreditoAntecipado) {
+    public void setDataCreditoAntecipado(String dataCreditoAntecipado) {
         this.dataCreditoAntecipado = dataCreditoAntecipado;
     }
 

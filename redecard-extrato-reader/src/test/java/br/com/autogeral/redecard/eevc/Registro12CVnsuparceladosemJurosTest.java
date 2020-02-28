@@ -59,7 +59,7 @@ public class Registro12CVnsuparceladosemJurosTest {
     @Test
     public void testParse() {
 
-        String expResult = "0120999999990205492002812201100000000000000000013000000000000000000422100******916800002000749080923             000000000000585070093141536                                                                2000000000012415000000000006207000000000006208WE007234        ";
+        String expResult = "0120147974700099496833105201900000000000000000016509000000000000000524820XXXXXX789900003000002866720             000000000000721029968100804                                                                2000000000015788000000000005262000000000005263WW249331BR 1";
         Registro12CVnsuparceladosemJuros recordParceladosemJuros = fixedFormatManager.load(Registro12CVnsuparceladosemJuros.class, expResult);
         System.out.println(recordParceladosemJuros);
     }

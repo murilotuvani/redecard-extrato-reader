@@ -50,7 +50,7 @@ public class RegistroTipo02TotalpontoVendatest {
 
     @Test
     public void testParse() {
-        String expResult = "02,015244946,003,000012,000000000250051,000000000002965,000000000247086,000000000000000,000000000000000,000000000000000";
+        String expResult = "02,039188892,003,000009,000000000138541,000000000001510,000000000137031,000000000000000,000000000000000,000000000000000";
         expResult = expResult.replace(",", "");
         RegistroTipo02TotalpontoVenda totalPontoVenda = manager.load(RegistroTipo02TotalpontoVenda.class, expResult);
         System.out.println(totalPontoVenda.toString());

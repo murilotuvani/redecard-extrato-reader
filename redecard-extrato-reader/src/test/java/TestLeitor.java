@@ -1,10 +1,8 @@
 
-import br.com.autogeral.redecard.eevc.Registro002HeaderArquivo;
-import br.com.autogeral.redecard.eevc.Registro004HeaderMatriz;
-import br.com.autogeral.redecard.eevc.Registro004HeaderMatrizTeste;
-import br.com.autogeral.redecard.eevc.Registro005Request;
+import br.com.autogeral.redecard.Leitor;
 import com.ancientprogramming.fixedformat4j.format.FixedFormatManager;
 import com.ancientprogramming.fixedformat4j.format.impl.FixedFormatManagerImpl;
+import java.io.File;
 
 /*
  * The MIT License
@@ -39,34 +37,12 @@ public class TestLeitor {
     private static FixedFormatManager manager = new FixedFormatManagerImpl();
 
     public static void main(String[] args) {
-
-        String teste = "00229122011REDECARDEXTRATO DE MOVIMENTO DE VENDASGRUPO OTICA OTICA     000106999999999DIARIO         V2.01 - 09/06 - EEVC";
-
-        Registro002HeaderArquivo recordHeaderArquivo = manager.load(Registro002HeaderArquivo.class, teste);
-
-        System.out.println("The parsed registro:" + recordHeaderArquivo.getTipoRegistro());
-        System.out.println("The parsed Data emissao:" + recordHeaderArquivo.getDataEmissao());
-        System.out.println("The parsed adquirente:" + recordHeaderArquivo.getAdquirente());
-        System.out.println("The parsed extrato eletronico:" + recordHeaderArquivo.getExtratoEletronicoVendas());
-        System.out.println("The parsed nome comercial:" + recordHeaderArquivo.getNomeComercial());
-        System.out.println("The parsed sequencia movimento: " + recordHeaderArquivo.getSequenciaMovimento());
-        System.out.println("The parsed numer grupo matriz: " + recordHeaderArquivo.getnPVgrupoMatriz());
-        System.out.println("The parsed tipo movimento:" + recordHeaderArquivo.getTipoMovimento());
-        System.out.println("The parsed versao arquivo: " + recordHeaderArquivo.getVersaoArquivo());
-        System.out.println("\n\n");
-
-        System.out.println("TESTE HEADER MATRIZ");
-        String teste2 = "004099999999OTICA OTICA";
-        Registro004HeaderMatriz recordHeaderMatriz = manager.load(Registro004HeaderMatriz.class, teste2);
-        System.out.println("The parsed Registro: " + recordHeaderMatriz.getTipoRegistro());
-        System.out.println("The parsed N°Pv Matriz: " + recordHeaderMatriz.getnPVMatriz());
-        System.out.println("The parsed Nome Comercial:" + recordHeaderMatriz.getNomeComercialMatriz());
-        
-        
-        
-         String expResult = "0100999999990205492003410036100000384977281220110000100000000001300000000000000000000000000000000000000000000058500000000";
-        Registro005Request recordRequest = manager.load(Registro005Request.class, expResult);
-        System.out.println(recordRequest.getTipoRegistro());
+       
+        File diretorio = new File("C:\\Users\\kaique.mota\\Documents\\Tivit_05022020_211715");
+        Leitor leitor = new Leitor();
+        leitor.defineLeituraArquivo(diretorio); 
+        leitor.registros.get(0);
+        System.out.println("");
 
     }
 

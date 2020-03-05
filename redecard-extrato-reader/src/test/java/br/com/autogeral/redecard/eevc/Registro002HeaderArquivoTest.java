@@ -48,7 +48,16 @@ public class Registro002HeaderArquivoTest extends TestCase {
     String tipoMovimento = "DIARIO";
     String versaoArquivo = "V2.01 - 09/06 - EEVC";
     String livre;
-
+//private Integer idIdentificaoFile;
+//	private Integer tipoRegistro;
+//    private Date dataEmissao;
+//    private String adquirente;
+//    private String extratoMovimentacaoFinanceira;
+//    private Integer sequenciaMovimento;
+//    private Integer numGrupoOuMatriz;
+//    private String tipoProcessamento;
+//    private String versaoArquivo;
+    
     @Test
     public void testParse() {
 

@@ -41,12 +41,12 @@ public class Registro030HeaderArquivotest {
 
     private static FixedFormatManager fixedFormatManager = new FixedFormatManagerImpl();
     Integer tipoRegistro = 30;
-    Date dataEmissao = java.sql.Date.valueOf(LocalDate.parse("28122011", DateTimeFormatter.ofPattern("ddMMyyyy")));
+    Date dataEmissao = java.sql.Date.valueOf(LocalDate.parse("03072019", DateTimeFormatter.ofPattern("ddMMyyyy")));
     String adquirente = "Redecard";
     String extratoMovimentacaoFinanceira = "Extrato de Movimentacao Financeira";
-    String nomeComercial = "GRUPO OTICA OTICA";
-    Integer sequenciaMovimento = 105;
-    Integer numGrupoOuMatriz = 999999999;
+    String nomeComercial = "AUTO GERAL";
+    Integer sequenciaMovimento = 110;
+    Integer numGrupoOuMatriz = 14797470;
     String tipoProcessamento = "DIARIO";
     String versaoArquivo = "V3.01 - 09/06 - EEFI";
 
@@ -61,7 +61,7 @@ public class Registro030HeaderArquivotest {
     @Test
     public void testEquals() {
 
-        String expResult = "03028122011RedecardExtrato de Movimentacao FinanceiraGRUPO OTICA OTICA     000105999999999DIARIO         V3.01 - 09/06 - EEFIS";
+        String expResult = "03003072019RedecardExtrato de Movimentacao FinanceiraAUTO GERAL            000110014797470DIARIO         V3.01 - 09/06 - EEFI";
         Registro030HeaderArquivo credito = fixedFormatManager.load(Registro030HeaderArquivo.class, expResult);
 
         assertEquals(credito.getTipoRegistro(), tipoRegistro);

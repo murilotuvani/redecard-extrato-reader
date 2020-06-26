@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ea4afedf-dd10-4d80-9715-617ffc857980" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/redecard-extrato-reader.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nb-configuration.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbactions.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro030HeaderArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro032HeaderMatriz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro034Creditos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro035AjustesNetDesagendamentos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro037TotalizadorCreditos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro040Serasa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro043AjustesCredito.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro044DebitosPendentes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro045DebitosLiquidados.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro049DesagendamentodeParcelas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro050TotalizadorMatriz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eefi/Registro052TrailerArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eesa/Registro062CabecalhoArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eesa/Registro066TotalizadorMatriz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eesa/Registro068TrailerArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eesa/RegistroTipo060CabecalhoArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecar/eesa/RegistroTipo061CabecalhoArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/Leitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/RegistroRedecard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro002HeaderArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro004HeaderMatriz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro005Request.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro006RVrotativo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro008CVnsuRotativo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro010RVparceladosemJuros.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro011ExtratoEletronicoVendas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro014ParcelosemJuros.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro016RViata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro017AVS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro018CVnsuparceladoIATA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro020ParceladoIATA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro021SecureCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro022RVdolar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro024CVnsuDolar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro026TotalizadorMatriz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro028TrailerArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro033RequestEcommerce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro034CVnsuRotativo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro036CVnsuParceladoIATA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro040CVnsuRecarga.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro12CVnsuparceladosemJuros.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevc/Registro35CVnsuparcelosemJurosEcommerce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/Registro00CabecalhoArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo01ResumoVendas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo02TotalpontoVenda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo03TotalMatriz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo04TotalArquivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo05DetalhamentoComprovantes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo08DesagendamentoVentasPreDatadasTotalouParcial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo09TransacoespredatadasLiquidadas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo11AjustesNet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo13DetalhamentoComprovantesVendasEcommerce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo17AjustesNetecommerce.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autogeral/redecard/eevd/RegistroTipo20DetalhamentoComprovantesOperadorasCelulares.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestLeitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro030HeaderArquivotest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro032HeaderMatriztest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro034Creditostest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro035AjustesNetDesagendamentostest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro035AjustesNetDesagendamentotest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro037TotalizadorCreditostest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro040Serasatest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro043AjustesCreditotest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro044DebitosPendentestest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro045DebitosLiquidadostest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro045DebitosLiquidostest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro049DesagendamentoParcelatest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro049DesagendamentodeParcelastest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro050TotalizadorMatriztest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eefi/Registro052TrailerArquivotest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eesa/Registro062CabecalhoArquivotest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro002HeaderArquivoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro004HeaderMatrizTeste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro005RequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro006RVrotativoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro008CVnsuRotativoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro010RVparceladosemJurostest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro011ExtratoEletronicoVendastet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro014ParcelosemJurosTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro016RViataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro017AVStest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro018CVnsuparceladoIATAteste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro020ParceladoIATAtest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro021SecureCodetest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro022RVdolartest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro024CVnsuDolartest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro026TotalizadorMatriztest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro028TrailerArquivotest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro033RequestEcommerceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro034CVnsuRotativoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro036CVnsuParceladoIATAtest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro040CVnsuRecargaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro12CVnsuparceladosemJurosTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevc/Registro35CVnsuparcelosemJurosEcommerceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevd/Registro00CabecalhoArquivoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevd/RegistroTipo01ResumoVendastest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevd/RegistroTipo02TotalpontoVendatest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevd/RegistroTipo03TotalMatriztest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevd/RegistroTipo04TotalArquivotest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevd/RegistroTipo05DetalhamentoComprovantestest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/autogeral/redecard/eevd/RegistroTipo11AjustesNettest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1dplcn2s60aQY17jShlwjC2FTQe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="br.com.autogeral.redecard" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestLeitor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestLeitor" />
+      <module name="redecard-extrato-reader" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestLeitor" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ea4afedf-dd10-4d80-9715-617ffc857980" name="Default Changelist" comment="" />
+      <created>1593129996720</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593129996720</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593133287695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1593133287695" />
+    <state width="1643" height="466" key="DebuggerActiveHint" timestamp="1593135502379">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1643" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1593135502379" />
+    <state width="938" height="348" key="GridCell.Tab.0.bottom" timestamp="1593136562042">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1593136562042" />
+    <state width="938" height="348" key="GridCell.Tab.0.center" timestamp="1593136562042">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1593136562042" />
+    <state width="938" height="348" key="GridCell.Tab.0.left" timestamp="1593136562042">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1593136562042" />
+    <state width="938" height="348" key="GridCell.Tab.0.right" timestamp="1593136562042">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1593136562042" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1593136556434">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1593136556434" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1593134321741">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1600.860@0.0.1920.1040" timestamp="1593134321741" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/TestLeitor.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
